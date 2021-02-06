@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">3</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">4</span></a>
 
   </li>
   </ul>
@@ -146,6 +146,95 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/python%20notes/python%20note%202/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/python%20notes/python%20note%202/" class="post-title-link" itemprop="url">python notes(2)  python自动化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 15:58:36" itemprop="dateCreated datePublished" datetime="2021-02-06T15:58:36+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>1.系统函数open</p>
+<ul>
+<li><p>R：read 读 （读不到报错</p>
+</li>
+<li><p>W: write 写  （读不到新建</p>
+</li>
+<li><p>B：binary 二进制</p>
+<p>不带二进制：纯文本</p>
+<p>带二进制：纯文本，图片，音乐，电影</p>
+</li>
+</ul>
+<p>若文件不存在，w模式新建</p>
+<p><code>f=open(&#39;文件名&#39;,&#39;w&#39;)</code></p>
+<p><code>f.close()</code>关闭文件</p>
+<p>写：write <code>f.write(&quot;*&quot;)</code> 将字符串写入文件中</p>
+<p>读取：</p>
+<ul>
+<li>f.read() 括号内数字：读取字符数</li>
+<li>f.readlines() 以列表元素导出，一行为列表中一个元素   </li>
+<li>f.readline()</li>
+</ul>
+<h3 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment">#文件重命名</span></span><br><span class="line">os.rename(<span class="string">&quot;initial&quot;</span>,<span class="string">&quot;final&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line">os.remove(<span class="string">&quot;name&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建文件夹</span></span><br><span class="line">os.mkdir(<span class="string">&quot;name&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取当前目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#改变默认目录</span></span><br><span class="line">os.chidir(<span class="string">&quot;../&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取目录列表</span></span><br><span class="line">os.listdir(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除文件夹</span></span><br><span class="line">os.rmdir(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -293,7 +382,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-28 00:40:29" itemprop="dateModified" datetime="2021-01-28T00:40:29+08:00">2021-01-28</time>
+                <time title="Modified: 2021-02-06 15:17:27" itemprop="dateModified" datetime="2021-02-06T15:17:27+08:00">2021-02-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -322,7 +411,7 @@
 <p>2.把一个函数当作另一个函数的参数，lambda表达式的使用</p>
 <p>e.g: sort filter map reduce</p>
 <p>用法 (take sort as an example) ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义列表“students”</span></span><br><span class="line">students=[&#123;<span class="string">&#x27;name&#x27;</span>:August,<span class="string">&#x27;height&#x27;</span>:<span class="number">195</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">100</span>&#125;,		&#123;<span class="string">&#x27;name&#x27;</span>:Eric,<span class="string">&#x27;height&#x27;</span>:<span class="number">165</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">1</span>&#125;,&#123;<span class="string">&#x27;name&#x27;</span>:Bobby,<span class="string">&#x27;height&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">2</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分类排序,注意，sort括号中必须是key=函数</span></span><br><span class="line">students.sort(key=foo)</span><br><span class="line">print(students)</span><br><span class="line"></span><br><span class="line"><span class="comment">#倒入foo函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>)</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">x</span>[&#x27;<span class="title">age</span>&#x27;]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义列表“students”</span></span><br><span class="line">students=[&#123;<span class="string">&#x27;name&#x27;</span>:August,<span class="string">&#x27;height&#x27;</span>:<span class="number">195</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">100</span>&#125;,		&#123;<span class="string">&#x27;name&#x27;</span>:Eric,<span class="string">&#x27;height&#x27;</span>:<span class="number">165</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">1</span>&#125;,&#123;<span class="string">&#x27;name&#x27;</span>:Bobby,<span class="string">&#x27;height&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">2</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分类排序,注意，sort括号中必须是key=函数</span></span><br><span class="line">students.<span class="built_in">sorted</span>(key=foo)</span><br><span class="line">print(students)</span><br><span class="line"></span><br><span class="line"><span class="comment">#倒入foo函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>)</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">x</span>[&#x27;<span class="title">score</span>&#x27;]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
 
 <p>3.函数的嵌套</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span>():</span></span><br><span class="line">  n=<span class="number">100</span> <span class="comment">#全局变量</span></span><br><span class="line">  print(<span class="string">&#x27;我是outer函数&#x27;</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;我是inner函数&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">if</span> x&gt;<span class="number">18</span>:</span><br><span class="line">    inner()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#inner()  嵌套函数，不成立</span></span><br><span class="line"><span class="comment">#outer(12)    只调1</span></span><br><span class="line"><span class="comment">#outer(21)    两个同时调</span></span><br></pre></td></tr></table></figure>
@@ -336,6 +425,38 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span>():</span></span><br><span class="line">  x=<span class="number">10</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner</span>()</span></span><br><span class="line">  y=x+1</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
 
 <p>对外部作用域进行引用</p>
+<p>条件：</p>
+<ul>
+<li>外部函数中定义了内部函数</li>
+<li>外部函数是有返回值</li>
+<li>返回值是：内部函数名</li>
+<li>内部函数引用了外部函数的变量值</li>
+</ul>
+<p>作用：</p>
+<ul>
+<li>使用同级的作用域</li>
+<li>读取其他元素的内部变量</li>
+<li>延长作用域</li>
+</ul>
+<p>特点：可以保持状态</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="闭包同级访问"><a href="#闭包同级访问" class="headerlink" title="闭包同级访问"></a>闭包同级访问</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>():</span></span><br><span class="line">  a=<span class="number">100</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner_func1</span>():</span></span><br><span class="line">  	b=<span class="number">90</span></span><br><span class="line">  	s=a+b</span><br><span class="line">  	print(s) </span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner_func2</span>():</span></span><br><span class="line">    inner_func1()</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">return</span> inner_func2()</span><br><span class="line"></span><br><span class="line">f=func()</span><br><span class="line"></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h6 id="应用：计数器"><a href="#应用：计数器" class="headerlink" title="应用：计数器"></a>应用：计数器</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_count</span>():</span></span><br><span class="line">  container=[<span class="number">0</span>]</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">add_one</span>():</span></span><br><span class="line">    container[<span class="number">0</span>]=container[<span class="number">0</span>]+<span class="number">1</span></span><br><span class="line">    print(<span class="string">&quot;the &#123;&#125;th time.format(container[0])&quot;</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> add_one</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h4><h6 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h6><ul>
+<li>函数A作为参数出现，函数B接收函数A作为参数</li>
+<li>要有闭包的特点</li>
+</ul>
+<h6 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deccorate</span>(<span class="params">func</span>):</span></span><br><span class="line">  print(<span class="string">&quot;外层打印&quot;</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>():</span></span><br><span class="line">    func()</span><br><span class="line">    print(<span class="string">&quot;装修&quot;</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> wrapper</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用装饰器</span></span><br><span class="line"><span class="meta">@decorate</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">house</span>():</span></span><br><span class="line">  print(<span class="string">&quot;毛坯房&quot;</span>)</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h6 id="万能装饰器"><a href="#万能装饰器" class="headerlink" title="万能装饰器"></a>万能装饰器</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    func(*args, **kwargs)</span><br><span class="line">    </span><br><span class="line"> <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+
+<h6 id="多层装饰器"><a href="#多层装饰器" class="headerlink" title="多层装饰器"></a>多层装饰器</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhuang1</span>(<span class="params">func</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **karhs</span>):</span></span><br><span class="line">    func()</span><br><span class="line">    print(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhuang2</span>(<span class="params">func</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **karhs</span>):</span></span><br><span class="line">    func()</span><br><span class="line">    print(<span class="string">&quot;2&quot;</span>)</span><br><span class="line">    </span><br><span class="line"> <span class="keyword">return</span> wrapper</span><br><span class="line"><span class="meta">@zhuang1</span></span><br><span class="line"><span class="meta">@zhuang2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">house</span>():</span></span><br><span class="line">  print(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#多层装饰器向上运行</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -503,7 +624,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
