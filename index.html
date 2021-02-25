@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
 
   </li>
   </ul>
@@ -150,6 +150,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/25/python%20notes/title%20the%20python%20notes(5)%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%EF%BC%882%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/25/python%20notes/title%20the%20python%20notes(5)%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">the python notes(5):算法入门（2）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-25 18:43:39" itemprop="dateCreated datePublished" datetime="2021-02-25T18:43:39+08:00">2021-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-note/" itemprop="url" rel="index"><span itemprop="name">python note</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="列表查找"><a href="#列表查找" class="headerlink" title="列表查找"></a>列表查找</h4><ul>
+<li><p>查找指在一些数据元素中通过一定的方法找出与给定关键字相同的数据元素的过程</p>
+</li>
+<li><p>列表查找：从列表中查找制定元素</p>
+<p> 输入：列表，带查找元素</p>
+<p>输出：元素下标（未找到元素时一般返回none或—1</p>
+</li>
+</ul>
+<h6 id="顺序查找（linear-search）"><a href="#顺序查找（linear-search）" class="headerlink" title="顺序查找（linear search）"></a>顺序查找（linear search）</h6><ul>
+<li>从列表第一个元素开始，顺序进行搜索，直到搜索到列表最后一个元素为止</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_search</span>(<span class="params">li,val</span>):</span></span><br><span class="line">  <span class="keyword">for</span> ind,v <span class="keyword">in</span> <span class="built_in">enumerate</span> (li):</span><br><span class="line">    <span class="keyword">if</span> v==val:</span><br><span class="line">      <span class="keyword">return</span> ind</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">return</span> none</span><br><span class="line">    </span><br><span class="line"><span class="comment">#时间复杂度：列表长度o(n)</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="二分查找（列表必须是有序列表）"><a href="#二分查找（列表必须是有序列表）" class="headerlink" title="二分查找（列表必须是有序列表）"></a>二分查找（列表必须是有序列表）</h6><ul>
+<li>大小排序，从中间算取¸         </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span>(<span class="params">li, val</span>):</span></span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = <span class="built_in">len</span>(li) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        mid = (left + right) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> li[mid]==val:</span><br><span class="line">            <span class="keyword">return</span> mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> li[mid] &gt; val:</span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">#时间复杂度：logn            </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="列表排序"><a href="#列表排序" class="headerlink" title="列表排序"></a>列表排序</h4><ul>
+<li><p>排序是将一组无序的记录序列调整为有序的记录序列</p>
+</li>
+<li><p>列表排序：将无序列表变成有序列表</p>
+</li>
+<li><p>常见排序算法</p>
+<table>
+<thead>
+<tr>
+<th align="center">排序lowB三人组</th>
+<th align="center">排序nb三人组</th>
+<th align="center">其他排序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">冒泡排序</td>
+<td align="center">快速排序</td>
+<td align="center">希尔排序</td>
+</tr>
+<tr>
+<td align="center">选择排序</td>
+<td align="center">堆排序</td>
+<td align="center">计数排序</td>
+</tr>
+<tr>
+<td align="center">插入排序</td>
+<td align="center">归并排序</td>
+<td align="center">基数排序</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h6 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h6><ul>
+<li>列表每两个相邻的数，如果前面比后面大，则交换这两个数</li>
+<li>一趟排序完成后，则无序区减少一个数，有序区增加一个数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>): <span class="comment">#第i趟</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):</span><br><span class="line">      <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">        li[j]&gt;li[j+<span class="number">1</span>]=li[j+<span class="number">1</span>],li[j]</span><br><span class="line">        </span><br><span class="line">li[random.randint(<span class="number">0</span>,<span class="number">10000</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>)]</span><br><span class="line">print(li)</span><br><span class="line">bubble_sort(li)</span><br><span class="line">print(li)                                                                                                                                           </span><br><span class="line">          </span><br><span class="line">       </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/24/python%20notes/title%20%20python%20notes(4%EF%BC%89%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,7 +286,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/24/python%20notes/title%20%20python%20notes(4%EF%BC%89%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">the python notes(4):算法入门</a>
+            <a href="/2021/02/24/python%20notes/title%20%20python%20notes(4%EF%BC%89%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">the python notes(4):算法入门（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -175,7 +297,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-02-24 11:06:56 / Modified: 11:13:37" itemprop="dateCreated datePublished" datetime="2021-02-24T11:06:56+08:00">2021-02-24</time>
+              <time title="Created: 2021-02-24 11:06:56 / Modified: 21:23:39" itemprop="dateCreated datePublished" datetime="2021-02-24T11:06:56+08:00">2021-02-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,7 +331,11 @@
 <h6 id="简单判断时间复杂度"><a href="#简单判断时间复杂度" class="headerlink" title="简单判断时间复杂度"></a>简单判断时间复杂度</h6><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyg3i0vpzj30x20i8q4x.jpg" alt="截屏2021-02-24 上午11.05.59"></p>
 <hr>
 <h4 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyg9pdnjij30x20i80tl.jpg" alt="截屏2021-02-24 上午11.12.11"></p>
+<h4 id="递归-小练习-汉诺塔"><a href="#递归-小练习-汉诺塔" class="headerlink" title="递归 小练习 汉诺塔"></a>递归 小练习 汉诺塔</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span>(<span class="params">n,a,b,c</span>):</span></span><br><span class="line">  <span class="keyword">if</span> n&gt;<span class="number">0</span>:</span><br><span class="line">    hanoi(n-<span class="number">1</span>,a,c,b)  <span class="comment">#开始，经过，最终移动到</span></span><br><span class="line">    print(<span class="string">&quot;moving from %s to %s&quot;</span>%(a,c))</span><br><span class="line">    hanoi(n-<span class="number">1</span>,b,a,c)</span><br><span class="line">    </span><br><span class="line">x=<span class="built_in">input</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">hanoi(x,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>)</span><br></pre></td></tr></table></figure>
 
+
+
+<h4 id><a href="#" class="headerlink" title></a></h4>
       
     </div>
 
@@ -824,7 +950,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
