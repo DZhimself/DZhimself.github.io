@@ -115,7 +115,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -176,13 +176,20 @@
 
               <time title="Created: 2021-02-25 18:43:39" itemprop="dateCreated datePublished" datetime="2021-02-25T18:43:39+08:00">2021-02-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-01 13:28:20" itemprop="dateModified" datetime="2021-03-01T13:28:20+08:00">2021-03-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python-note/" itemprop="url" rel="index"><span itemprop="name">python note</span></a>
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
                 </span>
             </span>
 
@@ -251,7 +258,7 @@
 <li>列表每两个相邻的数，如果前面比后面大，则交换这两个数</li>
 <li>一趟排序完成后，则无序区减少一个数，有序区增加一个数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>): <span class="comment">#第i趟</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):</span><br><span class="line">      <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">        li[j]&gt;li[j+<span class="number">1</span>]=li[j+<span class="number">1</span>],li[j]</span><br><span class="line">        </span><br><span class="line">li[random.randint(<span class="number">0</span>,<span class="number">10000</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>)]</span><br><span class="line">print(li)</span><br><span class="line">bubble_sort(li)</span><br><span class="line">print(li)                                                                                                                                           </span><br><span class="line">          </span><br><span class="line">       </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>): <span class="comment">#第i趟</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):</span><br><span class="line">      <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">        li[j]，li[j+<span class="number">1</span>]=li[j+<span class="number">1</span>],li[j]</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 
 
       
@@ -295,17 +302,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-02-24 11:06:56 / Modified: 21:23:39" itemprop="dateCreated datePublished" datetime="2021-02-24T11:06:56+08:00">2021-02-24</time>
+              <time title="Created: 2021-02-24 11:06:56" itemprop="dateCreated datePublished" datetime="2021-02-24T11:06:56+08:00">2021-02-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-01 13:28:12" itemprop="dateModified" datetime="2021-03-01T13:28:12+08:00">2021-03-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python-note/" itemprop="url" rel="index"><span itemprop="name">python note</span></a>
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
                 </span>
             </span>
 
@@ -957,7 +970,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
