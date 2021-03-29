@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
 
   </li>
   </ul>
@@ -146,6 +146,87 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/28/python%20notes/%E7%AE%97%E6%B3%952/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/28/python%20notes/%E7%AE%97%E6%B3%952/" class="post-title-link" itemprop="url">the python notes(5):algorithm（3）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-28 01:32:02 / Modified: 13:45:54" itemprop="dateCreated datePublished" datetime="2021-03-28T01:32:02+08:00">2021-03-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="greedy-alogrithnm"><a href="#greedy-alogrithnm" class="headerlink" title="greedy alogrithnm"></a>greedy alogrithnm</h3><ul>
+<li>greedy alogrithnm means, make the best choice that currently seams right. It does not make the best choice, but the best choices in parts of a problem.</li>
+</ul>
+<h6 id="backpack-problem"><a href="#backpack-problem" class="headerlink" title="backpack problem"></a>backpack problem</h6><p> A stealer finds n goods in a store. The first one worths v1 dollar and weighs w1 grams. He hopes to take as much value as possible, but his backpack can only contain a mass of W kg. What should he take.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#if the good can be divided</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fractional_backpack</span>(<span class="params">goods,w</span>):</span></span><br><span class="line">  m=[<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> <span class="built_in">len</span>(goods)]</span><br><span class="line">  <span class="keyword">for</span> i,(price,wage) <span class="keyword">in</span> <span class="built_in">enumerate</span> (goods):</span><br><span class="line">    <span class="keyword">if</span> w&gt;=height:</span><br><span class="line">      m[i]=<span class="number">1</span></span><br><span class="line">      w-=weight</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      m[i]=w/weight</span><br><span class="line">      w=<span class="number">0</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">return</span> m</span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+
+<h5 id="the-problem-of-spicing-the-maximum-number"><a href="#the-problem-of-spicing-the-maximum-number" class="headerlink" title="the problem of spicing the maximum number"></a>the problem of spicing the maximum number</h5><p>There are n non-negative integers. Joint them by the way string merge. What can we do to maximize the number derived?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> cmp_to_key</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xy_cmp</span>(<span class="params">x,y</span>):</span></span><br><span class="line">  <span class="keyword">if</span> x+y&lt;y+x:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> x+y&gt;y+x:</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">number_join</span>(<span class="params">li</span>):</span></span><br><span class="line">  li=<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>,li))</span><br><span class="line">  li.sort(key=cmp_to_key(xy_cmp))</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(li)</span><br><span class="line"></span><br><span class="line">print(number_join(li))</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h5 id="the-selection-of-activities"><a href="#the-selection-of-activities" class="headerlink" title="the selection of activities"></a>the selection of activities</h5><p>Assume there are n activities which will take a stadium. The stadium can be only used by a single activity during an interval of time.Note that every activity has a starting time si and ending time fi (represented by integers), which means that the activity will occupy the stadium during [si,fi)</p>
+<p>What activities can we arrange to maximize the number of activities held in the stadium?</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gozkiwxq5oj316y0u07iq.jpg" alt="IMG_708B017E1EBD-1"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -181,7 +262,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 17:16:02" itemprop="dateModified" datetime="2021-03-05T17:16:02+08:00">2021-03-05</time>
+                <time title="Modified: 2021-03-23 22:11:09" itemprop="dateModified" datetime="2021-03-23T22:11:09+08:00">2021-03-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,7 +340,9 @@
 
 <h6 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a>selection sort</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort_simple</span>(<span class="params">li</span>):</span></span><br><span class="line">  li_new=[]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)):</span><br><span class="line">    min_val=<span class="built_in">min</span>(li)</span><br><span class="line">    li_new.append(min_val)</span><br><span class="line">    li.remove(min_val)</span><br><span class="line">  <span class="keyword">return</span> li_new</span><br><span class="line"></span><br><span class="line"><span class="comment">#adcanced version:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):</span><br><span class="line">   min_loc=i</span><br><span class="line">   <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(li)):</span><br><span class="line">      <span class="keyword">if</span> li(j)&lt;li[min_loc]:</span><br><span class="line">        min_loc=j</span><br><span class="line">   li[i],li[min_loc]=li[min_loc],li[i]     </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
-<h6 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(li)):  </span><br><span class="line">  	j=i-<span class="number">1</span></span><br><span class="line">    tmp=li[i]</span><br><span class="line"> 	 	<span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">      lī[j+<span class="number">1</span>]=li[j]</span><br><span class="line">      j -=<span class="number">1</span></span><br><span class="line">    li[j+<span class="number">1</span>]=tmp</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<h6 id="insertion-sort"><a href="#insertion-sort" class="headerlink" title="insertion sort"></a>insertion sort</h6><p>insert the Nth element in a list in to the first n-1 numbers (arranged)</p>
+<p>continue until all of the list is arranged</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(li)):  </span><br><span class="line">  	j=i-<span class="number">1</span></span><br><span class="line">    tmp=li[i]</span><br><span class="line"> 	 	<span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">      lī[j+<span class="number">1</span>]=li[j]</span><br><span class="line">      j -=<span class="number">1</span></span><br><span class="line">    li[j+<span class="number">1</span>]=tmp</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
 <h5 id="Complex"><a href="#Complex" class="headerlink" title="Complex"></a>Complex</h5><h6 id="quick-sort"><a href="#quick-sort" class="headerlink" title="quick sort"></a>quick sort</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">li,left,right</span>):</span></span><br><span class="line">    tmp=li[left]</span><br><span class="line">    <span class="keyword">while</span> left&lt;right：</span><br><span class="line">    	<span class="keyword">while</span> left&lt;right <span class="keyword">and</span> li[right]&gt;=tmp: </span><br><span class="line">      		right=right-<span class="number">1</span></span><br><span class="line">      li[left]=li[right]</span><br><span class="line">      <span class="keyword">while</span> left&lt;right <span class="keyword">and</span> li[left]&lt;=tmp:</span><br><span class="line">        	left=left+<span class="number">1</span></span><br><span class="line">      li[left]=li[right]</span><br><span class="line">    li[left]=tmp   </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span>(<span class="params">data,left,right</span>):</span></span><br><span class="line">  <span class="keyword">if</span> left&lt;right:</span><br><span class="line">    mid=partition(data,laft,right)</span><br><span class="line">    quick_sort(data,left,mid-<span class="number">1</span>)</span><br><span class="line">    quick_sort(data,mid+<span class="number">1</span>,right)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
@@ -268,10 +351,71 @@
 <p>2.obtain the element on the top of the heap,which is the largest element</p>
 <p>3.forbid the top element and put the last element of the heap on to the top</p>
 <p>4.the top element now is the second largest element</p>
-<p>5.continuing 3 until the heao is empty</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sift</span>(<span class="params">li,low,high</span>):</span> </span><br><span class="line">  i=low </span><br><span class="line">  j=<span class="number">2</span>*i+<span class="number">1</span> </span><br><span class="line">  tmp=li[low]</span><br><span class="line">  <span class="keyword">while</span> j&lt;=high: </span><br><span class="line">    <span class="keyword">if</span> j+<span class="number">1</span>&lt;=high <span class="keyword">and</span> li[j+<span class="number">1</span>]&gt;li[j]:</span><br><span class="line">      j=j+<span class="number">1</span>  </span><br><span class="line">    <span class="keyword">if</span> li[j]&gt;tmp:  </span><br><span class="line">    </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>5.continuing 3 until the heap is empty</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sift</span>(<span class="params">li,low,high</span>):</span> <span class="comment">#low：the first element of the heap  high:the last element of the heap</span></span><br><span class="line">  i=low </span><br><span class="line">  j=<span class="number">2</span>*i+<span class="number">1</span> </span><br><span class="line">  tmp=li[low]</span><br><span class="line">  <span class="keyword">while</span> j&lt;=high: </span><br><span class="line">    <span class="keyword">if</span> j+<span class="number">1</span>&lt;=high <span class="keyword">and</span> li[j+<span class="number">1</span>]&gt;li[j]:</span><br><span class="line">      j=j+<span class="number">1</span>  </span><br><span class="line">    <span class="keyword">if</span> li[j]&gt;tmp:  </span><br><span class="line">      li[i]=li[j]</span><br><span class="line">      i=j</span><br><span class="line">      j=<span class="number">2</span>*i+<span class="number">1</span> </span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">    li[i]=tmp</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heap_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  n=<span class="built_in">len</span>(li)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((n-<span class="number">2</span>)//<span class="number">2</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">    <span class="comment">#i表示建堆的时候调整的部分的根的下标</span></span><br><span class="line">    sift(li,i,n-<span class="number">1</span>)</span><br><span class="line">    <span class="comment">#the construction of the heap is finished</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">    li[<span class="number">0</span>],li[i]=li[i],li[<span class="number">0</span>]</span><br><span class="line">    sift(li,<span class="number">0</span>,i-<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#time complexity of heap sorting n*logn</span></span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line"><span class="comment">#Blocks in python about heap sort</span></span><br><span class="line"><span class="keyword">import</span> heap </span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">li=<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">100</span>))</span><br><span class="line">random,shuffle(li)</span><br><span class="line"></span><br><span class="line">heapq.heapify(li) <span class="comment">#建堆</span></span><br><span class="line"></span><br><span class="line">heapq.heaphop(li) <span class="comment">#弹出最小的元素</span></span><br><span class="line"></span><br><span class="line">n=<span class="built_in">len</span>(li)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">  print(heapq.heap(li),end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>(not finished)</p>
+<p>the problem of TOPK: try to figure out the largest K numbers in a list of n numbers</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.slice after arranging  time complexity:O(nlogn)</span></span><br><span class="line"><span class="comment">#2.“easy three&quot; sorting O(kn)</span></span><br></pre></td></tr></table></figure>
+
+<p>  use heap sort to solve TOPK</p>
+<p>1.find the first k numbers in a list to make a small heap</p>
+<p>2.put away the top the heap(the currently kth smallest number)</p>
+<p>3.compare the first number from k to n with the top</p>
+<p>4.if smaller:move to the next number</p>
+<p>  if larger:  put it on the top and sift it again</p>
+<p>5.continue it </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#time complexity: O(nlogk)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># define sift downward</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sift</span>(<span class="params">li,low,high</span>):</span> <span class="comment">#low：the first element of the heap  high:the last element of the heap</span></span><br><span class="line">  i=low </span><br><span class="line">  j=<span class="number">2</span>*i+<span class="number">1</span> </span><br><span class="line">  tmp=li[low]</span><br><span class="line">  <span class="keyword">while</span> j&lt;=high: </span><br><span class="line">    <span class="keyword">if</span> j+<span class="number">1</span>&lt;=high <span class="keyword">and</span> li[j+<span class="number">1</span>]&lt;li[j]:</span><br><span class="line">      j=j+<span class="number">1</span>  </span><br><span class="line">    <span class="keyword">if</span> li[j]&lt;tmp:  </span><br><span class="line">      li[i]=li[j]</span><br><span class="line">      i=j</span><br><span class="line">      j=<span class="number">2</span>*i+<span class="number">1</span> </span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">    li[i]=tmp</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk</span>(<span class="params">li,k</span>):</span></span><br><span class="line">  heap=li[<span class="number">0</span>:k] <span class="comment">#建堆</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((k-<span class="number">2</span>)//<span class="number">2</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">    sift(heap,i,k-<span class="number">1</span>)</span><br><span class="line"><span class="comment">#遍历</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k,<span class="built_in">len</span>(li)-<span class="number">1</span>)</span><br><span class="line">  	<span class="keyword">if</span> li[i]&gt;heap[<span class="number">0</span>]:</span><br><span class="line">      heap[<span class="number">0</span>]=heap[i]</span><br><span class="line">      sift(heap,<span class="number">0</span>,k-<span class="number">1</span>)</span><br><span class="line"> <span class="comment">#出数</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">    heap[<span class="number">0</span>],heap[i]=heap[i],heap[<span class="number">0</span>]</span><br><span class="line">    sift(heap,<span class="number">0</span>,i-<span class="number">1</span>)</span><br><span class="line">  </span><br><span class="line"><span class="keyword">return</span> heap </span><br></pre></td></tr></table></figure>
+
+<h6 id="merge-sort"><a href="#merge-sort" class="headerlink" title="merge sort"></a>merge sort</h6><p>a “merge” means two ordered list become one ordered list</p>
+<p>the way of merging: compare the two lists from the first numbers</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">li,low,mid,high</span>):</span>  <span class="comment">#low:the first number of the left list</span></span><br><span class="line">  i=low</span><br><span class="line">  j=mid+<span class="number">1</span> </span><br><span class="line">  <span class="keyword">while</span> i&lt;=mid <span class="keyword">and</span> j&lt;=high: <span class="comment">#as long as there are numbers in both lists</span></span><br><span class="line">    <span class="keyword">if</span> li[i]&lt;li[j]:</span><br><span class="line">      ltmp.append(li[i])</span><br><span class="line">      i+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      ltmp.append(li[j])</span><br><span class="line">      j+=<span class="number">1</span></span><br><span class="line">  <span class="comment">#while 执行完，肯定有一部分没数了</span></span><br><span class="line">  <span class="keyword">while</span> i&lt;=mid:</span><br><span class="line">    ltmp.append(li[i])</span><br><span class="line">    i+=<span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span> j&lt;=high:</span><br><span class="line">    ltmp.append(li[j])</span><br><span class="line">    j+=<span class="number">1</span></span><br><span class="line"> li[low:high+<span class="number">1</span>]=ltmp</span><br></pre></td></tr></table></figure>
+
+<p>the way to use “merge”</p>
+<ul>
+<li><p>Decompose the list until only one element is left</p>
+</li>
+<li><p>end condition: only one element is in ordered</p>
+</li>
+<li><p>Merge: use merge to merge lists continously</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span>(<span class="params">li,low,high</span>):</span></span><br><span class="line">  <span class="keyword">if</span> low&lt;high: <span class="comment">#at least two elements</span></span><br><span class="line">    mid=(low+high)/<span class="number">2</span></span><br><span class="line">    merge_sort(li,low,mid)</span><br><span class="line">    merge_sort(li,mid+<span class="number">1</span>,high)</span><br><span class="line">    merge(li,low,mid,high)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#time complexity O(nlogn)</span></span><br><span class="line">    <span class="comment">#space complexity O(n)</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h6 id="a-conclution-for-the-complex-sorts"><a href="#a-conclution-for-the-complex-sorts" class="headerlink" title="a conclution for the complex sorts"></a>a conclution for the complex sorts</h6><ul>
+<li><p>time complexity are all O(nlogn)</p>
+</li>
+<li><p>the time taken:</p>
+<p>Quick sort&lt;merge sort&lt;heap sort</p>
+</li>
+<li><p>the dosadvantages for the three alogrithnms</p>
+<p>quick sort: low efficienty in some extreme situation</p>
+<p>Merge sort: have space complexity</p>
+<p>heap sort: relatively slow </p>
+</li>
+<li><p>Stability:</p>
+<p>Stable:bubble sort, insert sort, merge sort</p>
+</li>
+</ul>
+<h4 id="other-sorting"><a href="#other-sorting" class="headerlink" title="other sorting"></a>other sorting</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort_gap</span>(<span class="params">li,gap</span>):</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(gap,<span class="built_in">len</span>(li)):</span><br><span class="line">    tmp=li[i]</span><br><span class="line">    j=i-gap</span><br><span class="line">    <span class="keyword">while</span> j&lt;=<span class="number">0</span> <span class="keyword">and</span> li[j]&gt;tmp:</span><br><span class="line">      li[j+gap]=tmp</span><br><span class="line">      </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  d=<span class="built_in">len</span>(li)//<span class="number">2</span></span><br><span class="line">  <span class="keyword">while</span> d&gt;=<span class="number">1</span>:</span><br><span class="line">    insert_sort_gap(li,d)</span><br><span class="line">    d//=<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="shell-sort"><a href="#shell-sort" class="headerlink" title="shell sort"></a>shell sort</h6><ul>
+<li>find an integer d1=n/2, divide the elements into d1 groups,  make the distance beetween the elements in each group d1, do insert sorts amog the gtou[s</li>
+<li>do the things above when d2=d1/2</li>
+<li>Shell sort won’t make some element in order, </li>
+<li><img src="https://tva1.sinaimg.cn/large/008eGmZEly1goskhvnwd3j316y0u0n5i.jpg" alt="IMG_0452"></li>
+</ul>
+<h6 id="count-sort"><a href="#count-sort" class="headerlink" title="count sort"></a>count sort</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_sort</span>(<span class="params">li,max_count=<span class="number">100</span></span>):</span></span><br><span class="line">  count=[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span> (max_count+<span class="number">1</span>)]</span><br><span class="line">  <span class="keyword">for</span> val <span class="keyword">in</span> li:</span><br><span class="line">    count[val]+=<span class="number">1</span></span><br><span class="line">  li.clear()</span><br><span class="line">  <span class="keyword">for</span> ind,val <span class="keyword">in</span> <span class="built_in">enumerate</span>(count):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(val):</span><br><span class="line">      li.append(ind)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#time complexity O(n)</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="bucket-sort"><a href="#bucket-sort" class="headerlink" title="bucket sort"></a>bucket sort</h6><ul>
+<li>divide the number in different buckets</li>
+<li>sort the elements in each bucks</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bucket_sort</span>(<span class="params">li,n=<span class="number">100</span>,max_num=<span class="number">10000</span></span>):</span></span><br><span class="line">  buckets=[[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="comment">#set up a bucket</span></span><br><span class="line">  <span class="keyword">for</span> var <span class="keyword">in</span> li:</span><br><span class="line">    i=<span class="built_in">min</span>(var//(max_num//n),n-<span class="number">1</span>)</span><br><span class="line">    buckets[i],append(var)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span> (<span class="built_in">len</span>[buckets[i]]):</span><br><span class="line">      <span class="keyword">if</span> buckets[i][j]&lt;buckets[i][j-<span class="number">1</span>]:</span><br><span class="line">        buckets[i][j],buckets[i][j-<span class="number">1</span>]=buckets[i][j-<span class="number">1</span>],buckets[i][j]</span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">  sorted_li=[]</span><br><span class="line">  <span class="keyword">for</span> buc <span class="keyword">in</span> buckets:</span><br><span class="line">    sorted_li.extend(buc)</span><br><span class="line">  <span class="keyword">return</span> sorted_li</span><br></pre></td></tr></table></figure>
+
+<h6 id="radix-sort"><a href="#radix-sort" class="headerlink" title="radix sort"></a>radix sort</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">redix_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">  max_num=<span class="built_in">max</span>(li) <span class="comment">#the maximum number</span></span><br><span class="line">  it=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> <span class="number">10</span> ** it &lt;=max_num:</span><br><span class="line">    buckets=[[]<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> li:</span><br><span class="line">      digit=(var// ** it)%<span class="number">10</span></span><br><span class="line">      bucket[digit].append(var)</span><br><span class="line">   </span><br><span class="line">   <span class="comment">#the division of bucket completes</span></span><br><span class="line">    	li.clear()</span><br><span class="line">    	<span class="keyword">for</span> buc <span class="keyword">in</span> buckets:</span><br><span class="line">        li.extend(buc)</span><br><span class="line">        </span><br><span class="line">      it +=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -529,7 +673,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-28 00:33:42" itemprop="dateModified" datetime="2021-01-28T00:33:42+08:00">2021-01-28</time>
+                <time title="Modified: 2021-03-05 17:33:41" itemprop="dateModified" datetime="2021-03-05T17:33:41+08:00">2021-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -552,7 +696,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>看编码时的小笔记</p>
+          <p>notes taken when reading the book</p>
 <p>1.但是二进制书存在一点特殊性，这个特殊性就在于它是人们所能得到的最简单的数字系统—二进制中只有两个数字，0和1</p>
 <p>2.换句话说，所有可以被转换成两种或多种可能性选择的信息，都可以用比特来表示</p>
 <p>3.利用二进制表示信息的一个额外好处就是我们可以清楚的知道我们是否已经想到了所有的可能性</p>
@@ -624,7 +768,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/14/python%20notes/title%20%20python%20notes(1)/" class="post-title-link" itemprop="url">python notes(1)</a>
+            <a href="/2021/01/14/python%20notes/title%20%20python%20notes(1)/" class="post-title-link" itemprop="url">python notes(1) complex functions</a>
         </h2>
 
         <div class="post-meta">
@@ -641,7 +785,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 17:28:40" itemprop="dateModified" datetime="2021-03-05T17:28:40+08:00">2021-03-05</time>
+                <time title="Modified: 2021-03-05 17:34:51" itemprop="dateModified" datetime="2021-03-05T17:34:51+08:00">2021-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -745,7 +889,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/25/%E5%85%B6%E4%BB%96%E7%9A%84report/reading%20report(2)/" class="post-title-link" itemprop="url">history of physics(1)</a>
+            <a href="/2020/12/25/%E5%85%B6%E4%BB%96%E7%9A%84report/reading%20report(2)/" class="post-title-link" itemprop="url">history of physics(1)--reading report of {does god roll dice?-the breif history of physics}</a>
         </h2>
 
         <div class="post-meta">
@@ -762,7 +906,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-06 16:13:11" itemprop="dateModified" datetime="2021-02-06T16:13:11+08:00">2021-02-06</time>
+                <time title="Modified: 2021-03-05 21:17:13" itemprop="dateModified" datetime="2021-03-05T21:17:13+08:00">2021-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -880,7 +1024,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
