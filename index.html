@@ -115,12 +115,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">8</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">13</span></a>
 
   </li>
   </ul>
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/06/amc/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/04/python%20notes/linear%20structure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,579 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/06/amc/" class="post-title-link" itemprop="url">report of AMC&AIME</a>
+            <a href="/2021/05/04/python%20notes/linear%20structure/" class="post-title-link" itemprop="url">the python notes(6):data structure</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-04 20:10:07 / Modified: 20:49:20" itemprop="dateCreated datePublished" datetime="2021-05-04T20:10:07+08:00">2021-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Data structure is to design the way which the data is stored in the computer</strong></p>
+<ul>
+<li>linear structure: the elements in the structure has a one-on-one relationship</li>
+<li>tree structure: one-on-more relationship</li>
+<li>pic structure: more-on-more relationship</li>
+</ul>
+<h3 id="linear-structure"><a href="#linear-structure" class="headerlink" title="linear structure"></a>linear structure</h3><h5 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h5><ul>
+<li><p>stack is a set of data which can only insert or delete at one end</p>
+</li>
+<li><p>Characteristic: last-in, first-out LIFO</p>
+</li>
+<li><p>top,bottom</p>
+</li>
+<li><p>push insert   li.append</p>
+</li>
+<li><p>pop delete.   li.pop</p>
+</li>
+<li><p>Get top        li.[-1]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">stack</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">    self.stack=[]</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self,element</span>):</span></span><br><span class="line">    self.stack.append(element)</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">return</span> self.stack.pop()</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">get_top</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(self.stack)&gt;<span class="number">0</span>:</span><br><span class="line">      <span class="keyword">return</span> self.stack[-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h5 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h5><ul>
+<li>queue is a set of data which allows data to be inserted and another end to be deleted</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpha42xm8ij316y0u0npd.jpg" alt="IMG_0677"></p>
+<ul>
+<li>front goes one point forward.                                   front=(front+1)%MaxSize</li>
+<li>rear goes one point forward                                      rear=(rear+1)%MaxSize</li>
+<li>the condition when the queue is empty                    rear==front</li>
+<li>the condition when the queue is full                        (rear+1)%MaxSize==front</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,size=<span class="number">100</span></span>):</span></span><br><span class="line">    self.queue=[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(size)]</span><br><span class="line">    self.size=size</span><br><span class="line">    self.rear=<span class="number">0</span></span><br><span class="line">    self.front=<span class="number">0</span></span><br><span class="line">   </span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self,element</span>):</span></span><br><span class="line">  self.rear=(self.rear+<span class="number">1</span>)%rear.size</span><br><span class="line">  self.queue[self.rear]=element</span><br><span class="line">  </span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> self.is_empty:</span><br><span class="line">    self.front(self.front+<span class="number">1</span>)%self.size</span><br><span class="line">    <span class="keyword">return</span> self.queue[self.front]</span><br><span class="line">  </span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span>:</span></span><br><span class="line">  <span class="keyword">return</span> self.rear==self=front</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_filled</span>(<span class="params">self</span>):</span></span><br><span class="line">  <span class="keyword">return</span>(self.rear+<span class="number">1</span>)%self.size==size.front</span><br><span class="line"></span><br><span class="line">q=queue(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">  q.push(i)</span><br><span class="line">print(q.pop())</span><br><span class="line">q.push(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">q=deque()</span><br><span class="line">q.append()  <span class="comment">#push</span></span><br><span class="line">q.popleft()  <span class="comment">#pop</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Linked-list"><a href="#Linked-list" class="headerlink" title="Linked list"></a>Linked list</h5><p>Linked-list is the set consisted of a series of Nodes. Each node consists of two parts, the domain of data ‘item’ and the pointer’next’. The linked-list is made by the connection between nodes.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>:</span></span><br><span class="line">    self.item=item</span><br><span class="line">    self.<span class="built_in">next</span>=none</span><br><span class="line">    </span><br><span class="line"><span class="comment">#the setup of a linked list</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_linklist</span>(<span class="params">li</span>):</span></span><br><span class="line">  head=Node(li[<span class="number">0</span>])</span><br><span class="line">  <span class="keyword">for</span> element <span class="keyword">in</span> li[<span class="number">1</span>:]:</span><br><span class="line">    node=Node(element)</span><br><span class="line">    node.<span class="built_in">next</span>=head</span><br><span class="line">    head=node</span><br><span class="line">  <span class="keyword">return</span> head</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_linklist_tail</span>(<span class="params">li</span>):</span></span><br><span class="line">  head=Node(li[<span class="number">0</span>])</span><br><span class="line">  tail=head</span><br><span class="line">  <span class="keyword">for</span> element <span class="keyword">in</span> li[<span class="number">1</span>:]:</span><br><span class="line">    node=Node(element)</span><br><span class="line">    tail.<span class="built_in">next</span>=node</span><br><span class="line">    tail=node</span><br><span class="line">  <span class="keyword">return</span> head</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_linklist</span>(<span class="params">lk</span>):</span></span><br><span class="line">  <span class="keyword">while</span> lk:</span><br><span class="line">    print(lk.item,end<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    lk=lk.<span class="built_in">next</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">#the insertion of linked list</span></span><br><span class="line"></span><br><span class="line">curNode.<span class="built_in">next</span>=curNode.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/03/c++%20notes/C++%20core/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/03/c++%20notes/C++%20core/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-03 23:41:03" itemprop="dateCreated datePublished" datetime="2021-05-03T23:41:03+08:00">2021-05-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-04 20:50:11" itemprop="dateModified" datetime="2021-05-04T20:50:11+08:00">2021-05-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>title:  C++ notes:core(1)</p>
+<p>categories: C++ notes</p>
+<hr>
+<h3 id="The-division-of-memory"><a href="#The-division-of-memory" class="headerlink" title="The division of memory"></a>The division of memory</h3><ul>
+<li>area of code:binary code, which is monitored by the operating system</li>
+<li>area of variables:</li>
+<li>stack</li>
+<li>heap</li>
+</ul>
+<h6 id="before-the-program-is-executed"><a href="#before-the-program-is-executed" class="headerlink" title="before the program is executed"></a>before the program is executed</h6><p>After the program is translated, exe excutable program is created. Two areas are created before the program is executed:</p>
+<ul>
+<li><p>area of the code</p>
+<p>the opcode that is going to be operated by the machine</p>
+<p>this area is shared</p>
+<p>this area cannot be written</p>
+</li>
+<li><p>area of variables</p>
+<p>global variable and static variable are put here</p>
+<p>constant is stored here,too</p>
+<p>data in this area will be released by the operating system after the program is finished</p>
+</li>
+</ul>
+<h5 id="after-the-program-is-executed"><a href="#after-the-program-is-executed" class="headerlink" title="after the program is executed"></a>after the program is executed</h5><ul>
+<li><p>stack</p>
+<p>released by compiler, store variables in the function, local variable</p>
+<p>do not return the address of the local variable</p>
+</li>
+<li><p>heap</p>
+<p>released by the user</p>
+<p>Use “new” to start a memory</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> * <span class="title">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> *p=<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>);</span><br><span class="line">  <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">  <span class="keyword">int</span> *p=func()；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>delete the data: use “delete”</p>
+</li>
+<li><p>Add “[]” when releasing an array</p>
+</li>
+</ul>
+<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
+<li>use: give another name to a variable</li>
+<li>data type  &amp;reference = variable name</li>
+<li>must be initialized</li>
+<li>can’t be changed after being initialized</li>
+<li>used as a return of function<ul>
+<li>can’t reference a local variable</li>
+</ul>
+</li>
+<li>used as a function variable<ul>
+<li>use reference to simplify actual parameter</li>
+</ul>
+</li>
+<li>reference is a pointer constant</li>
+</ul>
+<h5 id="const-reference"><a href="#const-reference" class="headerlink" title="const reference"></a>const reference</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp; ref =<span class="number">10</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="further-function"><a href="#further-function" class="headerlink" title="further function"></a>further function</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/01/c++%20notes/C++notes3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/01/c++%20notes/C++notes3/" class="post-title-link" itemprop="url">C++ notes:introduction(3)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-01 01:17:04" itemprop="dateCreated datePublished" datetime="2021-05-01T01:17:04+08:00">2021-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-04 20:49:52" itemprop="dateModified" datetime="2021-05-04T20:49:52+08:00">2021-05-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-notes/" itemprop="url" rel="index"><span itemprop="name">C++ notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Matrix"><a href="#Matrix" class="headerlink" title="Matrix"></a>Matrix</h3><p>Matric is a set with the same type of data </p>
+<h6 id="one-dimensional-matrix"><a href="#one-dimensional-matrix" class="headerlink" title="one dimensional matrix"></a>one dimensional matrix</h6><ul>
+<li>data type + name of the matrix[(the length of the matrix)]={value1,value2}</li>
+<li>sizeof(name): the space the matrix takes in the RAM</li>
+<li>（int)arr: the address of the matrix</li>
+<li>(int)&amp;arr[0]: the address of the first element</li>
+</ul>
+<p>Small exercise: make a matrix upside down</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>]=&#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> start=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> end=<span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[<span class="number">0</span>])<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (start&lt;end)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> temp=arr[start];</span><br><span class="line">  arr[start]=arr[end];</span><br><span class="line">  arr[end]=temp;</span><br><span class="line"></span><br><span class="line">  start++;</span><br><span class="line">  end--</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="two-dimensional-matrix"><a href="#two-dimensional-matrix" class="headerlink" title="two-dimensional matrix"></a>two-dimensional matrix</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//data type; name of the matrix[number of rows][number of columns]</span></span><br><span class="line"><span class="comment">//data type; name of the matrix[number of rows][number of columns]=&#123;&#123;data1,data2&#125;,&#123;data3,data4&#125;&#125;</span></span><br><span class="line"><span class="comment">//data type; name of the matrix[number of rows][number of columns]=&#123;data1,data2,data3,data4&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 函数名（参数列表）</span><br><span class="line">&#123;</span><br><span class="line">  函数体语句</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span>表达式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/29/c++%20notes/symbol%20of%20calculating/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/29/c++%20notes/symbol%20of%20calculating/" class="post-title-link" itemprop="url">C++ notes:introduction(2)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-29 14:58:17" itemprop="dateCreated datePublished" datetime="2021-04-29T14:58:17+08:00">2021-04-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-04 20:49:43" itemprop="dateModified" datetime="2021-05-04T20:49:43+08:00">2021-05-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-notes/" itemprop="url" rel="index"><span itemprop="name">C++ notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="symbol-of-calculating"><a href="#symbol-of-calculating" class="headerlink" title="symbol of calculating"></a>symbol of calculating</h3><p>function: the calculatin of excuting codes</p>
+<ul>
+<li>logic symbol</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!</td>
+<td>Not</td>
+<td></td>
+<td>if a is false, a! is true</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>And</td>
+<td></td>
+<td>if a and b are true,is true</td>
+</tr>
+<tr>
+<td>||</td>
+<td>or</td>
+<td></td>
+<td>if a or b is true, is true</td>
+</tr>
+</tbody></table>
+<h3 id="the-structure-of-a-code"><a href="#the-structure-of-a-code" class="headerlink" title="the structure of a code"></a>the structure of a code</h3><ul>
+<li>linear structure</li>
+<li>loop</li>
+<li>case structure</li>
+</ul>
+<h5 id="case-structure"><a href="#case-structure" class="headerlink" title="case structure"></a>case structure</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">if</span></span></span><br><span class="line">#<span class="number">1.</span>single row:</span><br><span class="line"><span class="keyword">if</span> (condition)&#123;output&#125;</span><br><span class="line">#<span class="number">2.</span>more rows</span><br><span class="line"><span class="keyword">if</span> (condition)&#123;output&#125;<span class="keyword">else</span>&#123;the other output&#125;</span><br><span class="line">#<span class="number">3.</span>more conditions</span><br><span class="line"><span class="keyword">if</span> (condition)&#123;output&#125;<span class="keyword">else</span> <span class="keyword">if</span>(condition2)&#123;output2&#125;...<span class="keyword">else</span>&#123;output&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="The-ternary-operator"><a href="#The-ternary-operator" class="headerlink" title="The ternary operator"></a>The ternary operator</h5><p><code>expression1 ? expression2:expression3</code></p>
+<h5 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression)&#123;</span><br><span class="line">  <span class="keyword">case</span> (condition1):execute;<span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> (condition1):execute;<span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> (condition1):execute;<span class="keyword">break</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h5><p><code>while(condition of loop)&#123;execute&#125;</code></p>
+<p><code>do&#123;execute&#125; while (condition)</code></p>
+<p><code>for(condition of start;condition of loop,what to do after one loop)&#123;execute&#125;</code></p>
+<h5 id="break"><a href="#break" class="headerlink" title="break"></a>break</h5><ul>
+<li>used in switch</li>
+<li>used i loop</li>
+<li>used in nested loop</li>
+</ul>
+<h5 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h5><p>continue to the next loop without finishing the current loop</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/28/c++%20notes/C++%20note%201/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/28/c++%20notes/C++%20note%201/" class="post-title-link" itemprop="url">C++ notes:ntroduction</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-28 14:42:52" itemprop="dateCreated datePublished" datetime="2021-04-28T14:42:52+08:00">2021-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-04 20:49:32" itemprop="dateModified" datetime="2021-05-04T20:49:32+08:00">2021-05-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-notes/" itemprop="url" rel="index"><span itemprop="name">C++ notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="variables"><a href="#variables" class="headerlink" title="variables"></a>variables</h3><ul>
+<li><p>how to represent:</p>
+<p>data type     name of the variable=value of the variable</p>
+</li>
+</ul>
+<h3 id="constant"><a href="#constant" class="headerlink" title="constant"></a>constant</h3><p>1.#define 宏常量： #define;name of the vairable;the value of the constant</p>
+<p>2.const: the value that is decorated          const ;data type ;name of the variable=value of the variable</p>
+<h3 id="data-types"><a href="#data-types" class="headerlink" title="data types"></a>data types</h3><h5 id="integers"><a href="#integers" class="headerlink" title="integers"></a>integers</h5><table>
+<thead>
+<tr>
+<th>data type</th>
+<th>the space taken</th>
+<th>the value that can be obtained</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Short</td>
+<td>2 bytes</td>
+<td></td>
+</tr>
+<tr>
+<td>Int</td>
+<td>4 bytes</td>
+<td></td>
+</tr>
+<tr>
+<td>Long</td>
+<td>4 bytes</td>
+<td></td>
+</tr>
+<tr>
+<td>Long long</td>
+<td>8 bytes</td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h5><p>the key number that can calculate the RAM the datatype takes</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">short</span> num1=<span class="number">10</span>;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt; <span class="keyword">sizeof</span>(<span class="keyword">short</span>);</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(num1);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="float"><a href="#float" class="headerlink" title="float"></a>float</h5><ul>
+<li>single accuracy: 4 bytes</li>
+<li>double accuracy:8 bytes</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">float</span> f1=<span class="number">3.1415926</span>;</span><br><span class="line">  <span class="keyword">double</span> d1=<span class="number">3.1415926</span>;</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;f1;<span class="built_in">cout</span>&lt;&lt;f2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Char"><a href="#Char" class="headerlink" title="Char"></a>Char</h5><p><code>char ch=&#39;a&#39;</code></p>
+<ul>
+<li>char only takes one byte</li>
+<li>char is not stored in the RAM with itself.It is collected after converting into ASCII code</li>
+</ul>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;str&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  char str[]=&#x27;hello world&#x27;;</span><br><span class="line">  string str2=&#x27;hello world&#x27;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h5><ul>
+<li>True</li>
+<li>False</li>
+<li>takes one byte</li>
+</ul>
+<p>the input of data</p>
+<ul>
+<li>cin</li>
+<li>cin&gt;&gt;variable</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/06/%E5%85%B6%E4%BB%96%E7%9A%84report/amc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/06/%E5%85%B6%E4%BB%96%E7%9A%84report/amc/" class="post-title-link" itemprop="url">report of AMC&AIME</a>
         </h2>
 
         <div class="post-meta">
@@ -739,326 +1311,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/%E5%85%B6%E4%BB%96%E7%9A%84report/title%20%20CODE%2011/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="August Gu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AugustGu's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/14/%E5%85%B6%E4%BB%96%E7%9A%84report/title%20%20CODE%2011/" class="post-title-link" itemprop="url">notes taken when reading {code}</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-14 23:08:51" itemprop="dateCreated datePublished" datetime="2021-01-14T23:08:51+08:00">2021-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 17:33:41" itemprop="dateModified" datetime="2021-03-05T17:33:41+08:00">2021-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other-reports-and-summaries/" itemprop="url" rel="index"><span itemprop="name">other reports and summaries</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>notes taken when reading the book</p>
-<p>1.但是二进制书存在一点特殊性，这个特殊性就在于它是人们所能得到的最简单的数字系统—二进制中只有两个数字，0和1</p>
-<p>2.换句话说，所有可以被转换成两种或多种可能性选择的信息，都可以用比特来表示</p>
-<p>3.利用二进制表示信息的一个额外好处就是我们可以清楚的知道我们是否已经想到了所有的可能性</p>
-<p>4.什么是真理？亚里士多德认为真理是与逻辑相关的某种事物</p>
-<p>5.在布尔代数中，1表示集合，0表示空集，加表示并集，乘表示交集。+可以用or来表示，*可以用and来表示，1-可以用not来表示</p>
-<p>在电路中 并联即or 串联即and</p>
-<p>\6. 继电器就像开关一样，可以串联或并联在电路中执行简单的逻辑任务，这种继电器的组合叫逻辑门</p>
-<p>  继电器的输入不一定只能是开关，其输出也未必只限于灯泡。一个继电器的输出可以连接到另一个继电器的输入</p>
-<p>7.与门/或门 AND OR</p>
-<p> 反相器不是门，它可以将0转化成1，可以将1转化成0</p>
-<p>或非门/与非门 NOR NAND</p>
-<p> 抑或门 input(a,b). output= (a+b)+(1-a*b)</p>
-<p>8.如何实现电路加法/减法？</p>
-<p>9.振荡器 输入即输出相反</p>
-<hr>
-<p>1.反相器的输出和输入是相反的，但是在这里，输出同时又是输入！。。。我们把这种电路称为振荡器，他和我们先前学到的所有东西存在本质上的区别，其他状态的改变都需要人为的干预，而振荡器却可以在不需要人干涉的情况下，完全的自发工作</p>
-<p>2.当两个电路都断开时，灯泡有时亮着，有时却不亮。当两个电路都断开时，电路有两个稳定态。</p>
-<p>3.触发器确实是一种不可或缺的工具，他们可以记住电路之前发生了什么事情，所以电路有了计数的能力</p>
-<p>4.RS触发器的特殊点在于，他可以记住那个输出端的最终状态为1</p>
-<p>5.D型锁存器可以锁住电路以为数据并保持它，一遍将来使用</p>
-<p>6.数据路径，每8个比特流为一组，在器件与器件之间流动</p>
-<p>  Why8？ 八比特代表一个字节（bite）</p>
-<p>一个字节在很多方面比单独的比特更胜一筹-数字可以按照bcd形式方便的保存，世界上大部分书面语言都可以通过256个字符来表示，字节同样适用于表示黑白图像的灰度值</p>
-<p>7.RAM 随机访问储存器</p>
-<p>8.RAM阵列的储存容量=2^地址输入端的个数</p>
-<p>9.1024字节被称为一个千字节，1k</p>
-<p>   1024k被称为一个兆字节，1mb</p>
-<p>1024mb=1gb</p>
-<p>10.RAM被称为易失性储存器，为了保证珍贵的数据不丢失，易失性储存器需要恒定的电流</p>
-<hr>
-<p>1.对于构造计算机来说，继电器不是最完美的装备，因为他们时机械性的，利用金属片的伸直与弯折进行工作，频繁的工作可能导致断裂，如果接触点之间有污垢或卡住纸屑，也会导致继电器失败</p>
-<p>2.用真空管取代继电器最大好处在于真空管的状态可以在百万分之一秒内发生转变，真空管的速度比继电器要快1000倍</p>
-<p>3.元素和硅元素被称为半导体是因为他们的导电系数可以通过各种方式操控</p>
-<p>4.晶体管不会让计算机结构变得更简单，因为把继电器和晶体管连接起来制造逻辑门一样困难。从某些方面看，这更加困难，因为晶体管更小而且不容易被控制 </p>
-<p>5.微处理器-正是他，讲计算器中央处理器的所有构建整合在一起，继承在一个硅芯片上</p>
-<p>（chapter19-21 过于复杂完全看不懂 直接跳过）</p>
-<p>6.如果对总线做一个简单的概括，可以认为是数字信号的集合，而这些信号提供给计算机上的每块线路板</p>
-<p>最后发现21章之后耶过于复杂 还得跳过</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/python%20notes/title%20%20python%20notes(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="August Gu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AugustGu's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/14/python%20notes/title%20%20python%20notes(1)/" class="post-title-link" itemprop="url">python notes(1) complex functions</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-14 23:01:21" itemprop="dateCreated datePublished" datetime="2021-01-14T23:01:21+08:00">2021-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 17:34:51" itemprop="dateModified" datetime="2021-03-05T17:34:51+08:00">2021-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="complex-function"><a href="#complex-function" class="headerlink" title="complex function"></a>complex function</h4><p>1.set the function as.a return of another function</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    print(<span class="string">&quot;i&#x27;m function test&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo</span>():</span></span><br><span class="line">		print(<span class="string">&#x27;I am function demo&quot;)</span></span><br><span class="line"><span class="string">		return test</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">def bar():</span></span><br><span class="line"><span class="string">    print(&#x27;</span>Iam the function ba<span class="string">r&quot;)</span></span><br><span class="line"><span class="string">    return test()</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">#1.use the function direcly</span></span><br><span class="line"><span class="string">x=test()</span></span><br><span class="line"><span class="string">print(x)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#2.</span></span><br><span class="line"><span class="string">y=demo()</span></span><br><span class="line"><span class="string">print(y)</span></span><br><span class="line"><span class="string">z=y()</span></span><br><span class="line"><span class="string">print(z)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#3.</span></span><br><span class="line"><span class="string">a=bar()</span></span><br><span class="line"><span class="string">print(a)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
-
-<p>2.use a function as the parameter of another function, the use of lambda</p>
-<p>e.g: sort filter map reduce</p>
-<ul>
-<li>take sort as an example ：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#define the list “students”</span></span><br><span class="line">students=[&#123;<span class="string">&#x27;name&#x27;</span>:August,<span class="string">&#x27;height&#x27;</span>:<span class="number">195</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">100</span>&#125;,		&#123;<span class="string">&#x27;name&#x27;</span>:Eric,<span class="string">&#x27;height&#x27;</span>:<span class="number">165</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">1</span>&#125;,&#123;<span class="string">&#x27;name&#x27;</span>:Bobby,<span class="string">&#x27;height&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;score&#x27;</span>:<span class="number">2</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># sort by differnt keys</span></span><br><span class="line">students.<span class="built_in">sorted</span>(key=foo)</span><br><span class="line">print(students)</span><br><span class="line"></span><br><span class="line"><span class="comment">#defining the function of foo</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span>(<span class="params">x</span>)</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">x</span>[&#x27;<span class="title">score</span>&#x27;]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
-
-<p>3.nesting of a function</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span>():</span></span><br><span class="line">  n=<span class="number">100</span> <span class="comment">#global variable</span></span><br><span class="line">  print(<span class="string">&#x27;I am the outer function&#x27;</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner</span>():</span></span><br><span class="line">    print(<span class="string">&#x27;I am the inner function&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">if</span> x&gt;<span class="number">18</span>:</span><br><span class="line">    inner()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#inner()   does not exist</span></span><br><span class="line"><span class="comment">#outer(12)    using the outer</span></span><br><span class="line"><span class="comment">#outer(21)    using both</span></span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a>Closure</h4><ul>
-<li>closure is the sum of a function and the environment around which（closure=function+environment）</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span>():</span></span><br><span class="line">  x=<span class="number">10</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner</span>()</span></span><br><span class="line">  y=x+1</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Condition：</p>
-<ul>
-<li>inner function has been defined inside the outer function</li>
-<li>there are return value of the inner function</li>
-<li>the return value is the name of the inside function</li>
-<li>the inner function uses the variables in of the outer function</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h6 id="using-closure"><a href="#using-closure" class="headerlink" title="using closure"></a>using closure</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>():</span></span><br><span class="line">  a=<span class="number">100</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner_func1</span>():</span></span><br><span class="line">  	b=<span class="number">90</span></span><br><span class="line">  	s=a+b</span><br><span class="line">  	print(s) </span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner_func2</span>():</span></span><br><span class="line">    inner_func1()</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">return</span> inner_func2()</span><br><span class="line"></span><br><span class="line">f=func()</span><br><span class="line"></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-<h6 id="applying-closure-calculator"><a href="#applying-closure-calculator" class="headerlink" title="applying closure: calculator"></a>applying closure: calculator</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_count</span>():</span></span><br><span class="line">  container=[<span class="number">0</span>]</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">add_one</span>():</span></span><br><span class="line">    container[<span class="number">0</span>]=container[<span class="number">0</span>]+<span class="number">1</span></span><br><span class="line">    print(<span class="string">&quot;the &#123;&#125;th time.format(container[0])&quot;</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> add_one</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Decorator"><a href="#Decorator" class="headerlink" title="Decorator"></a>Decorator</h4><h6 id="Characteristics："><a href="#Characteristics：" class="headerlink" title="Characteristics："></a>Characteristics：</h6><ul>
-<li>function A appear as a parameter, function B recieves A</li>
-<li>have characteristics of closure</li>
-</ul>
-<h6 id="example"><a href="#example" class="headerlink" title="example:"></a>example:</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#defining a decortor</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deccorate</span>(<span class="params">func</span>):</span></span><br><span class="line">  print(<span class="string">&quot;outer&quot;</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>():</span></span><br><span class="line">    func()</span><br><span class="line">    print(<span class="string">&quot;inner&quot;</span>)</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> wrapper</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line"><span class="comment">#using the decrator</span></span><br><span class="line"><span class="meta">@decorate   </span><span class="comment">#importing the docorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">house</span>():</span></span><br><span class="line">  print(<span class="string">&quot;original&quot;</span>)</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-<h6 id="all-purpose-decorator"><a href="#all-purpose-decorator" class="headerlink" title="all-purpose decorator"></a>all-purpose decorator</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    func(*args, **kwargs)</span><br><span class="line">    </span><br><span class="line"> <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
-
-<h6 id="many-layers-of-decorator"><a href="#many-layers-of-decorator" class="headerlink" title="many layers of decorator"></a>many layers of decorator</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhuang1</span>(<span class="params">func</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **karhs</span>):</span></span><br><span class="line">    func()</span><br><span class="line">    print(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zhuang2</span>(<span class="params">func</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span>(<span class="params">*args, **karhs</span>):</span></span><br><span class="line">    func()</span><br><span class="line">    print(<span class="string">&quot;2&quot;</span>)</span><br><span class="line">    </span><br><span class="line"> <span class="keyword">return</span> wrapper</span><br><span class="line"><span class="meta">@zhuang1</span></span><br><span class="line"><span class="meta">@zhuang2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">house</span>():</span></span><br><span class="line">  print(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#the decorator will move upwards when the program is running</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/25/%E5%85%B6%E4%BB%96%E7%9A%84report/reading%20report(2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="August Gu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AugustGu's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/25/%E5%85%B6%E4%BB%96%E7%9A%84report/reading%20report(2)/" class="post-title-link" itemprop="url">history of physics(1)--reading report of {does god roll dice?-the breif history of physics}</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-25 00:53:48" itemprop="dateCreated datePublished" datetime="2020-12-25T00:53:48+08:00">2020-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 21:17:13" itemprop="dateModified" datetime="2021-03-05T21:17:13+08:00">2021-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other-reports-and-summaries/" itemprop="url" rel="index"><span itemprop="name">other reports and summaries</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="history-of-physics"><a href="#history-of-physics" class="headerlink" title="history of physics"></a>history of physics</h2><h4 id="the-brief-history-of-the-development-of-light-in-classic-physics"><a href="#the-brief-history-of-the-development-of-light-in-classic-physics" class="headerlink" title="the brief history  of the development of light in classic physics"></a>the brief history  of the development of light in classic physics</h4><p>**  a debate on light– a wave or a particle?  **</p>
-<h5 id="1-what-is-light"><a href="#1-what-is-light" class="headerlink" title="1.what is light?"></a>1.what is light?</h5><p>Light, something that people observe the most every day, “should be”the most ancient thingever exisited in the universe. But WHAT IS LIGHT? In ancient Greece, scientist used to assume light is something people discharge from their eyes. But this hypothesis has lots of flaws, for example, why can’t people see in the dark if they can discharge light?</p>
-<p>When it comes to Rome, Lucretius claims light comes form objects, instead of eyes. In the next thousands of years, scientists figured out the way light reflects, refracts. And as the famous scientist Pierre de Fermat concluded “the path taken between two points by a ray of light is the path that can be traversed in the least time”, people gained a breif view of light.</p>
-<h5 id="2-what-on-earth-is-light"><a href="#2-what-on-earth-is-light" class="headerlink" title="2.what on earth is light?!!!"></a>2.what on earth is light?!!!</h5><p>​         In Ancient Greece, people used to consider light as a stream of “light          particle”. They assume light is a particle becasue of lots of reasons–the way light  relflects, they way light travels…..But as people discovered that sound is a wave, they started to suggest that light is a wave, too. The theory that light is a wave can explain a lot of things like : why two light can pass through each other. But they is still one thing that scientists supporting light is a wave can not explain—why light can travel in vacuum (wave travel by the vibration and collision of particles in the media).</p>
-<h5 id="3-“the-world-war”"><a href="#3-“the-world-war”" class="headerlink" title="3. “the world war”"></a>3. “the world war”</h5><p>​    In the following thousand of years,scientists, no mater supporting wave theory or particle theory, tried their best to improve their theory because there are so many things they can not explain, using their own theory. However, things changed as two British scientists appeared on the stage of physics. In 1665, Robert Hook, suggest that the difference in colour of light is because of the different frequency of light wave. Soonly afterwards, Newton found the spectra of lights . He explained the spectra by supporting the theory of particles–white light is a mixture of different types of particles. Both of them were sensitive, ignorant and conceit.They started to attack each other , and kept on attacking till they die. Two years after the death of Hook, Issac Newton released one of the most important books in the history of physics [optics]. He explained nearly any doubt about light using te theory. From then on, Isaac Newton has constructed a complex physics system using his theory in kinematics and light. In the following one thousand years, nobody even attempeted to challenge Newton. It seems that the particle theory got a complete win against the wave theory.</p>
-<hr>
-<h5 id="4-the-challenger"><a href="#4-the-challenger" class="headerlink" title="4.the challenger"></a>4.the challenger</h5><p>In 1807, a young British scientist released his famous book called 「A Course of Lectures on Natural Philosophy and the Mechanical Arts 」 In this book, young explained his famous experiment–two-slit interference. The</p>
-<p>way the experiment works is shown in the picture below</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gndvt1r2bnj30dw0bgaas.jpg"></p>
-<p>In this experiment, young gives a strong evidence supporting light is a wave. Only waves can overlap and form the figure like strips. Although the evidence is strong and destructive to the particle theory, nobody that time dared to doubt  the theory of Newton. Things changed completely in 1819，a young French architect ,Augustin Fresnel, found an interesting phenomenon, and explained the diffraction of the light. But the theory still leaves something that scientist can not explain—why light can travel in the vacuum? Scientist used to use the word “ether”to explain. But none of them could explain that what is ether.</p>
-<h5 id="5-another-huge-success"><a href="#5-another-huge-success" class="headerlink" title="5.another huge success"></a>5.another huge success</h5><p>In 1887, a young German scientist Heinrich Hertz proved the existence of electromagnetic wave predicted by Maxwell. He finished and completed the theory first suggested by Faraday. By this theory, light is classified as a type of electromagnetic wave, so that it can travel through vacuum easily. </p>
-<h5 id="6-mystery-never-ends"><a href="#6-mystery-never-ends" class="headerlink" title="6.mystery never ends"></a>6.mystery never ends</h5><p>The theory of wave seems to be dominant in the field of history. Everything seems so peaceful and everything seems to be able to be explained by the theory from Maxwell. However, problems are still left.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1125,14 +1382,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
