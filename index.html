@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">11</span></a>
 
   </li>
   </ul>
@@ -146,6 +146,90 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/12/coding%20activities/title%206.12coding%20activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/12/coding%20activities/title%206.12coding%20activity/" class="post-title-link" itemprop="url">6.12coding activity</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-12 23:53:17" itemprop="dateCreated datePublished" datetime="2021-06-12T23:53:17+08:00">2021-06-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding-activities/" itemprop="url" rel="index"><span itemprop="name">coding activities</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="background-information"><a href="#background-information" class="headerlink" title="background information"></a>background information</h5><p>Pottery found from 9 archeological sites is made from 3 different styles: all white, corrugation and straigh line. Archaeologists judge from many discoveries that these sites belong to different ages. The percentage of styles in each sites is different. Now we have known that each style experience a trand from becoming popular to becoming unpopular. We have now known that pure white is the ealiest style.</p>
+<h5 id="ways-to-solve"><a href="#ways-to-solve" class="headerlink" title="ways to solve"></a>ways to solve</h5><ul>
+<li>plot 3D map</li>
+<li>use Kmeans to give the similiar group a colour</li>
+<li>observe and analyze the result</li>
+</ul>
+<h5 id="3Dmatplotlib"><a href="#3Dmatplotlib" class="headerlink" title="3Dmatplotlib"></a>3Dmatplotlib</h5><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grfw4ikqx7j30hs0dc75q.jpg" alt="sphx_glr_scatter3d_001"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fixing random state for reproducibility</span></span><br><span class="line">np.random.seed(<span class="number">19680801</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">randrange</span>(<span class="params">n, vmin, vmax</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Helper function to make an array of random numbers having shape (n, )</span></span><br><span class="line"><span class="string">    with each number distributed Uniform(vmin, vmax).</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> (vmax - vmin)*np.random.rand(n) + vmin</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line"></span><br><span class="line">n = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For each set of style and range settings, plot n random points in the box</span></span><br><span class="line"><span class="comment"># defined by x in [23, 32], y in [0, 100], z in [zlow, zhigh].</span></span><br><span class="line"><span class="keyword">for</span> m, zlow, zhigh <span class="keyword">in</span> [(<span class="string">&#x27;o&#x27;</span>, -<span class="number">50</span>, -<span class="number">25</span>), (<span class="string">&#x27;^&#x27;</span>, -<span class="number">30</span>, -<span class="number">5</span>)]:</span><br><span class="line">    xs = randrange(n, <span class="number">23</span>, <span class="number">32</span>)</span><br><span class="line">    ys = randrange(n, <span class="number">0</span>, <span class="number">100</span>)</span><br><span class="line">    zs = randrange(n, zlow, zhigh)</span><br><span class="line">    ax.scatter(xs, ys, zs, marker=m)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;X Label&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Y Label&#x27;</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">&#x27;Z Label&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h5 id="Kmeans"><a href="#Kmeans" class="headerlink" title="Kmeans"></a>Kmeans</h5><p><strong>Kmeans</strong> algorithm is an iterative algorithm that tries to partition the dataset into <em>K</em>pre-defined distinct non-overlapping subgroups (clusters) where each data point belongs to only one group. It tries to make the intra-cluster data points as similar as possible while also keeping the clusters as different (far) as possible. It assigns data points to a cluster such that the sum of the squared distance between the data points and the cluster’s centroid (arithmetic mean of all the data points that belong to that cluster) is at the minimum. The less variation we have within clusters, the more homogeneous (similar) the data points are within the same cluster.</p>
+<ol>
+<li>Specify number of clusters <em>K</em>.</li>
+<li>Initialize centroids by first shuffling the dataset and then randomly selecting <em>K</em> data points for the centroids without replacement.</li>
+<li>Keep iterating until there is no change to the centroids. i.e assignment of data points to clusters isn’t changing.</li>
+</ol>
+<h5 id="codes-to-acheive"><a href="#codes-to-acheive" class="headerlink" title="codes to acheive"></a>codes to acheive</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> mpl_toolkits.mplot3d</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans </span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">0</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>])</span><br><span class="line">y = np.array([<span class="number">0</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>])</span><br><span class="line">z = np.array([<span class="number">0</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">fig = plt.figure( figsize=(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line">ax1 = plt.axes(projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;white&#x27;</span>)  </span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;corrugation&#x27;</span>) </span><br><span class="line">ax1.set_zlabel(<span class="string">&#x27;staright line&#x27;</span>) </span><br><span class="line"></span><br><span class="line">X=np.array([[<span class="number">100</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">70</span>,<span class="number">30</span>],[<span class="number">50</span>,<span class="number">50</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">20</span>,<span class="number">80</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>],[<span class="number">70</span>,<span class="number">30</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">100</span>,<span class="number">0</span>],[<span class="number">30</span>,<span class="number">70</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">60</span>,<span class="number">40</span>]])</span><br><span class="line">cls=KMeans(n_clusters=<span class="number">3</span>).fit(X)</span><br><span class="line">labels=cls.labels_</span><br><span class="line"></span><br><span class="line">ax1.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], X[:, <span class="number">2</span>],</span><br><span class="line">               c=labels)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grfx68uwl7j30n00ie75u.jpg" alt="截屏2021-06-12 下午11.52.43"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1172,93 +1256,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/25/%E5%85%B6%E4%BB%96%E7%9A%84report/reading%20report(2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="August Gu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AugustGu's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/25/%E5%85%B6%E4%BB%96%E7%9A%84report/reading%20report(2)/" class="post-title-link" itemprop="url">history of physics(1)--reading report of {does god roll dice?-the breif history of physics}</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-25 00:53:48" itemprop="dateCreated datePublished" datetime="2020-12-25T00:53:48+08:00">2020-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 21:17:13" itemprop="dateModified" datetime="2021-03-05T21:17:13+08:00">2021-03-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other-reports-and-summaries/" itemprop="url" rel="index"><span itemprop="name">other reports and summaries</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="history-of-physics"><a href="#history-of-physics" class="headerlink" title="history of physics"></a>history of physics</h2><h4 id="the-brief-history-of-the-development-of-light-in-classic-physics"><a href="#the-brief-history-of-the-development-of-light-in-classic-physics" class="headerlink" title="the brief history  of the development of light in classic physics"></a>the brief history  of the development of light in classic physics</h4><p>**  a debate on light– a wave or a particle?  **</p>
-<h5 id="1-what-is-light"><a href="#1-what-is-light" class="headerlink" title="1.what is light?"></a>1.what is light?</h5><p>Light, something that people observe the most every day, “should be”the most ancient thingever exisited in the universe. But WHAT IS LIGHT? In ancient Greece, scientist used to assume light is something people discharge from their eyes. But this hypothesis has lots of flaws, for example, why can’t people see in the dark if they can discharge light?</p>
-<p>When it comes to Rome, Lucretius claims light comes form objects, instead of eyes. In the next thousands of years, scientists figured out the way light reflects, refracts. And as the famous scientist Pierre de Fermat concluded “the path taken between two points by a ray of light is the path that can be traversed in the least time”, people gained a breif view of light.</p>
-<h5 id="2-what-on-earth-is-light"><a href="#2-what-on-earth-is-light" class="headerlink" title="2.what on earth is light?!!!"></a>2.what on earth is light?!!!</h5><p>​         In Ancient Greece, people used to consider light as a stream of “light          particle”. They assume light is a particle becasue of lots of reasons–the way light  relflects, they way light travels…..But as people discovered that sound is a wave, they started to suggest that light is a wave, too. The theory that light is a wave can explain a lot of things like : why two light can pass through each other. But they is still one thing that scientists supporting light is a wave can not explain—why light can travel in vacuum (wave travel by the vibration and collision of particles in the media).</p>
-<h5 id="3-“the-world-war”"><a href="#3-“the-world-war”" class="headerlink" title="3. “the world war”"></a>3. “the world war”</h5><p>​    In the following thousand of years,scientists, no mater supporting wave theory or particle theory, tried their best to improve their theory because there are so many things they can not explain, using their own theory. However, things changed as two British scientists appeared on the stage of physics. In 1665, Robert Hook, suggest that the difference in colour of light is because of the different frequency of light wave. Soonly afterwards, Newton found the spectra of lights . He explained the spectra by supporting the theory of particles–white light is a mixture of different types of particles. Both of them were sensitive, ignorant and conceit.They started to attack each other , and kept on attacking till they die. Two years after the death of Hook, Issac Newton released one of the most important books in the history of physics [optics]. He explained nearly any doubt about light using te theory. From then on, Isaac Newton has constructed a complex physics system using his theory in kinematics and light. In the following one thousand years, nobody even attempeted to challenge Newton. It seems that the particle theory got a complete win against the wave theory.</p>
-<hr>
-<h5 id="4-the-challenger"><a href="#4-the-challenger" class="headerlink" title="4.the challenger"></a>4.the challenger</h5><p>In 1807, a young British scientist released his famous book called 「A Course of Lectures on Natural Philosophy and the Mechanical Arts 」 In this book, young explained his famous experiment–two-slit interference. The</p>
-<p>way the experiment works is shown in the picture below</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gndvt1r2bnj30dw0bgaas.jpg"></p>
-<p>In this experiment, young gives a strong evidence supporting light is a wave. Only waves can overlap and form the figure like strips. Although the evidence is strong and destructive to the particle theory, nobody that time dared to doubt  the theory of Newton. Things changed completely in 1819，a young French architect ,Augustin Fresnel, found an interesting phenomenon, and explained the diffraction of the light. But the theory still leaves something that scientist can not explain—why light can travel in the vacuum? Scientist used to use the word “ether”to explain. But none of them could explain that what is ether.</p>
-<h5 id="5-another-huge-success"><a href="#5-another-huge-success" class="headerlink" title="5.another huge success"></a>5.another huge success</h5><p>In 1887, a young German scientist Heinrich Hertz proved the existence of electromagnetic wave predicted by Maxwell. He finished and completed the theory first suggested by Faraday. By this theory, light is classified as a type of electromagnetic wave, so that it can travel through vacuum easily. </p>
-<h5 id="6-mystery-never-ends"><a href="#6-mystery-never-ends" class="headerlink" title="6.mystery never ends"></a>6.mystery never ends</h5><p>The theory of wave seems to be dominant in the field of history. Everything seems so peaceful and everything seems to be able to be explained by the theory from Maxwell. However, problems are still left.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1325,7 +1327,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
