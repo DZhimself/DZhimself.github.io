@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="hello world12345#include&lt;studio.h&gt;int main()&amp;#123;  printf(&quot;Hello World&quot;);  return 0  &amp;#125;   a C-language program is made up from a number of header files and functions #include&lt;s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C language:basic(1)">
+<meta property="og:url" content="http://example.com/2021/06/29/C%20notes/title%20%20C%20languagebasic(1)/index.html">
+<meta property="og:site_name" content="AugustGu&#39;s blog">
+<meta property="og:description" content="hello world12345#include&lt;studio.h&gt;int main()&amp;#123;  printf(&quot;Hello World&quot;);  return 0  &amp;#125;   a C-language program is made up from a number of header files and functions #include&lt;s">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1grx6nzuzvcj30k40a3jry.jpg">
+<meta property="article:published_time" content="2021-06-29T13:54:57.145Z">
+<meta property="article:modified_time" content="2021-06-29T13:54:57.145Z">
+<meta property="article:author" content="August Gu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008i3skNgy1grx6nzuzvcj30k40a3jry.jpg">
+
+<link rel="canonical" href="http://example.com/2021/06/29/C%20notes/title%20%20C%20languagebasic(1)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>C language:basic(1) | AugustGu's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AugustGu's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">13</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/29/C%20notes/title%20%20C%20languagebasic(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C language:basic(1)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-29 21:54:57" itemprop="dateCreated datePublished" datetime="2021-06-29T21:54:57+08:00">2021-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-language-notes/" itemprop="url" rel="index"><span itemprop="name">C language notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;studio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>a C-language program is made up from a number of header files and functions</li>
+<li>#include&lt;stdio.h&gt; is a pre-processing instruction. It’s function is to process some work before compilation.</li>
+<li>function is a unit to achieve the logic behind the code.</li>
+</ul>
+<h4 id="standarized-programming"><a href="#standarized-programming" class="headerlink" title="standarized programming"></a>standarized programming</h4><ul>
+<li>1.one instruction or sentence takes up one row</li>
+<li>2.sentence inside a function needs indentation. Usually a tab is for an indentation</li>
+<li>3.Brackets have to exist in pairs.</li>
+<li>4.Semicolon should exist at the end of each excutable sentence.</li>
+</ul>
+<h5 id="variables"><a href="#variables" class="headerlink" title="variables"></a>variables</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//usual way of definition:data type + name of the variable</span></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//way of defining multiple variables: data type+ name of the variable1 + name of the variable2</span></span><br><span class="line"><span class="keyword">int</span> a,b,c,d;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//giving value when declaring the variable</span></span><br><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//giving the value after declaring the variable</span></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line">a=<span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="data-types"><a href="#data-types" class="headerlink" title="data types"></a>data types</h4><p>Data types in C language can be classified as: basic data type, structured data type, pointer data type, void type</p>
+<h5 id="basic-data-types"><a href="#basic-data-types" class="headerlink" title="basic data types"></a>basic data types</h5><table>
+<thead>
+<tr>
+<th>Basic data type</th>
+<th>Byte</th>
+<th>Application</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Char</td>
+<td>1</td>
+<td>used to store single byte</td>
+<td>char sex=”M”</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>2</td>
+<td>used to store integer</td>
+<td>int age=18</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>4</td>
+<td>used to store decimal</td>
+<td>float price=11.1</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>8</td>
+<td>used to store decimal with more digits</td>
+<td>double pi=3.1415926</td>
+</tr>
+</tbody></table>
+<h4 id="structured-output-sentence"><a href="#structured-output-sentence" class="headerlink" title="structured output sentence"></a>structured output sentence</h4><ul>
+<li>“Printf(“pace holder”+output)”</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Placeholder</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%d</td>
+<td>denary integer</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>Char</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>String</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>float (6 decimals)</td>
+</tr>
+</tbody></table>
+<h4 id="unchangeable-constant"><a href="#unchangeable-constant" class="headerlink" title="unchangeable constant"></a>unchangeable constant</h4><ul>
+<li>Constant can be divided as direct constant and notation constant</li>
+<li>direct constant is the value that can be used directly without needing to be declared</li>
+<li>notation constant needs to be defined before used</li>
+</ul>
+<p><code>#define POCKETMONEY10</code></p>
+<ul>
+<li>Notation constant cannot be changed after been defined</li>
+</ul>
+<h4 id="automatic-data-type-transfer"><a href="#automatic-data-type-transfer" class="headerlink" title="automatic data type transfer"></a>automatic data type transfer</h4><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grx6nzuzvcj30k40a3jry.jpg" alt="IMG_8F9F9D338E9C-1"></p>
+<ul>
+<li>fewer bytes can transfer to more bytes</li>
+<li>More bytes can not be changed to fewer bytes</li>
+</ul>
+<h5 id="compulsory-data-type-transfer"><a href="#compulsory-data-type-transfer" class="headerlink" title="compulsory data type transfer"></a>compulsory data type transfer</h5><p>(data type)(representation)</p>
+<h4 id="operation-symbol"><a href="#operation-symbol" class="headerlink" title="operation symbol"></a>operation symbol</h4><h5 id="alogrithnm-symbol"><a href="#alogrithnm-symbol" class="headerlink" title="alogrithnm symbol"></a>alogrithnm symbol</h5><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Opration symbol</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Addition</td>
+<td>+</td>
+<td>2+10=12</td>
+</tr>
+<tr>
+<td>Substraction</td>
+<td>-</td>
+<td>10-3=7</td>
+</tr>
+<tr>
+<td>Times</td>
+<td>*</td>
+<td>2*10=20</td>
+</tr>
+<tr>
+<td>Quotient</td>
+<td>/</td>
+<td>30/10=3</td>
+</tr>
+<tr>
+<td>Mod</td>
+<td>%</td>
+<td>23%7=2</td>
+</tr>
+<tr>
+<td>Self-add</td>
+<td>++</td>
+<td>Int a=1, a++</td>
+</tr>
+<tr>
+<td>Self-minus</td>
+<td>–</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>in a minus calculation:<ul>
+<li>if two numbers are integers, the result is also an integer. Decimal part is ignored.</li>
+<li>if one of the two numbers are decimal, the result is also decimal</li>
+</ul>
+</li>
+<li>in a mod calculation<ul>
+<li>only suitable for calculation between integers</li>
+</ul>
+</li>
+</ul>
+<h5 id="Assignment-Operators"><a href="#Assignment-Operators" class="headerlink" title="Assignment Operators"></a>Assignment Operators</h5><ul>
+<li>Simple assignment operator: =</li>
+<li>complex assignment operator: +=,-=,*=,/=</li>
+</ul>
+<h5 id="Relationship-operators"><a href="#Relationship-operators" class="headerlink" title="Relationship operators"></a>Relationship operators</h5><table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>larger than</td>
+<td>10&gt;5</td>
+<td>1</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>larger or equal to</td>
+<td>10&gt;=10</td>
+<td>1</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>smaller than</td>
+<td>10&lt;5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>smaller or equal to</td>
+<td>10&lt;=10</td>
+<td>1</td>
+</tr>
+<tr>
+<td>==</td>
+<td>Equal to</td>
+<td>10==5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>not equal to</td>
+<td>10!=5</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h5 id="logic-operators"><a href="#logic-operators" class="headerlink" title="logic operators"></a>logic operators</h5><table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>And</td>
+<td>0&amp;&amp;1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>||</td>
+<td>or</td>
+<td>0||1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>!</td>
+<td>Not</td>
+<td>!0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/12/coding%20activities/title%206.12coding%20activity/" rel="prev" title="6.12coding activity">
+      <i class="fa fa-chevron-left"></i> 6.12coding activity
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/30/C%20notes/function/" rel="next" title="C language:basic(2) programming structure">
+      C language:basic(2) programming structure <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-world"><span class="nav-number">1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#standarized-programming"><span class="nav-number">2.</span> <span class="nav-text">standarized programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#variables"><span class="nav-number">2.1.</span> <span class="nav-text">variables</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data-types"><span class="nav-number">3.</span> <span class="nav-text">data types</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#basic-data-types"><span class="nav-number">3.1.</span> <span class="nav-text">basic data types</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#structured-output-sentence"><span class="nav-number">4.</span> <span class="nav-text">structured output sentence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unchangeable-constant"><span class="nav-number">5.</span> <span class="nav-text">unchangeable constant</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#automatic-data-type-transfer"><span class="nav-number">6.</span> <span class="nav-text">automatic data type transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#compulsory-data-type-transfer"><span class="nav-number">6.1.</span> <span class="nav-text">compulsory data type transfer</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#operation-symbol"><span class="nav-number">7.</span> <span class="nav-text">operation symbol</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#alogrithnm-symbol"><span class="nav-number">7.1.</span> <span class="nav-text">alogrithnm symbol</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Assignment-Operators"><span class="nav-number">7.2.</span> <span class="nav-text">Assignment Operators</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Relationship-operators"><span class="nav-number">7.3.</span> <span class="nav-text">Relationship operators</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#logic-operators"><span class="nav-number">7.4.</span> <span class="nav-text">logic operators</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="August Gu"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">August Gu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">August Gu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
