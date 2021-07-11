@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">14</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">12</span></a>
 
   </li>
   </ul>
@@ -146,241 +146,6 @@
 
           <div class="content index posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/11/coding%20activities/7.10coding%20activity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="August Gu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AugustGu's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/11/coding%20activities/7.10coding%20activity/" class="post-title-link" itemprop="url">7.10coding activity</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-11 18:20:48" itemprop="dateCreated datePublished" datetime="2021-07-11T18:20:48+08:00">2021-07-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coding-activities/" itemprop="url" rel="index"><span itemprop="name">coding activities</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="linear-regression"><a href="#linear-regression" class="headerlink" title="linear regression"></a>linear regression</h3><h4 id="linear-regression，single-variable"><a href="#linear-regression，single-variable" class="headerlink" title="linear regression，single variable"></a>linear regression，single variable</h4><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsd5ihvwb8j30la0gc0ts.jpg"></p>
-<p>Linear regression with a single variable is the simplist regression problem, its model is:<br>$$<br>h(x)=\theta_0+\theta_1x<br>$$<br>x is the input, h(x) is the ouput of the suggested model. The program can adjust the constants by the given data.</p>
-<h4 id="cost-function"><a href="#cost-function" class="headerlink" title="cost function"></a>cost function</h4><p>Cost function is the function used to measure the accuracy of the model h(x), which is also called “the loss function”.For a regression task, the most commonly used measurement is the Mean Squared Error (MSE), for example, for the model<br>$$<br>h(x)=\theta_0+\theta_1x<br>$$<br>its MSE is:<br>$$<br>J(\theta_0,\theta_1)=\frac{1}{2m}\sum_{i=1}^m(h(x_1)-y_1)^2<br>$$</p>
-<h4 id="gradient-descent"><a href="#gradient-descent" class="headerlink" title="gradient descent"></a>gradient descent</h4><p>Training is a way to decrease the cost gradually.</p>
-<p>Gradient descent can be used to find the minumuim value of j.<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsd617mnk9j30o00b4gmy.jpg" alt="截屏2021-07-11 下午6.02.58"></p>
-<h4 id="the-way-to-acheieve-regression-by-python"><a href="#the-way-to-acheieve-regression-by-python" class="headerlink" title="the way to acheieve regression by python"></a>the way to acheieve regression by python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import packages</span></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment">#load trainset from the csv file</span></span><br><span class="line">population = np.array([])</span><br><span class="line">profit = np.array([])</span><br><span class="line">reader = csv.reader(<span class="built_in">open</span>(<span class="string">&#x27;./data1.csv&#x27;</span>,<span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">    population = np.append(population, <span class="built_in">float</span>(row[<span class="number">0</span>]))</span><br><span class="line">    profit = np.append(profit, <span class="built_in">float</span>(row[<span class="number">1</span>]))</span><br><span class="line">    </span><br><span class="line"><span class="comment">#plot trainset</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plotData</span>(<span class="params">x, y, t0=<span class="literal">None</span>, t1=<span class="literal">None</span></span>):</span></span><br><span class="line">    plt.figure(figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">    plt.scatter(x.tolist(), y.tolist(), marker=<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> (t0 != <span class="literal">None</span>) <span class="keyword">and</span> (t1 != <span class="literal">None</span>):</span><br><span class="line">        tempx = np.linspace(<span class="number">5</span>, <span class="number">22.5</span>, <span class="number">50</span>)</span><br><span class="line">        tempy = t0 + tempx * t1</span><br><span class="line">        plt.plot(tempx, tempy, color=<span class="string">&#x27;red&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&#x27;Population of City in 10000&#x27;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;Profit in $10000&#x27;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">plotData(population, profit)</span><br><span class="line"></span><br><span class="line"><span class="comment">#model definition of line regression</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">h</span>(<span class="params">x, theta0, theta1</span>):</span></span><br><span class="line">    <span class="keyword">return</span> theta0 + theta1 * x</span><br><span class="line">		<span class="function"><span class="keyword">def</span> <span class="title">computeCost</span>(<span class="params">x, y, theta0, theta1</span>):</span></span><br><span class="line">    m = <span class="built_in">len</span>(y)</span><br><span class="line">    J = <span class="number">1</span>/(<span class="number">2</span>*m) * <span class="built_in">sum</span>((h(x,theta0,theta1) - y) ** <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> J</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradientDescent</span>(<span class="params">x, y, theta0, theta1, alpha, iterTimes</span>):</span></span><br><span class="line">    m = <span class="built_in">len</span>(y)</span><br><span class="line">    temp0 = theta0 - alpha*(<span class="number">1</span>/m) * <span class="built_in">sum</span>((h(x, theta0, theta1) - y));  </span><br><span class="line">    temp1 = theta1 - alpha*(<span class="number">1</span>/m) * <span class="built_in">sum</span>((h(x, theta0, theta1) - y) * x);  </span><br><span class="line">    iterTimes = iterTimes + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> temp0, temp1, iterTimes</span><br><span class="line">  </span><br><span class="line"><span class="comment">#model fitting</span></span><br><span class="line"><span class="comment">#Initialize  𝜃0,𝜃1 with random float from -10 to 10, learning rate a is set to 0.001</span></span><br><span class="line">theta0 = random.uniform(-<span class="number">10</span>,<span class="number">10</span>)</span><br><span class="line">theta1 = random.uniform(-<span class="number">10</span>,<span class="number">10</span>)</span><br><span class="line">alpha = <span class="number">0.001</span></span><br><span class="line">iterTimes = <span class="number">0</span> <span class="comment"># times of iteration</span></span><br><span class="line">cost = []</span><br><span class="line">print(<span class="string">&quot;After %d iterations:&quot;</span>%(iterTimes))</span><br><span class="line">print(<span class="string">&quot;h(x) = %f + %fx&quot;</span>%((theta0, theta1)))  </span><br><span class="line">print(<span class="string">&quot;Cost is %f now.&quot;</span>%(computeCost(population, profit, theta0, theta1)))</span><br><span class="line">plotData(population, profit, theta0, theta1)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    theta0, theta1, iterTimes = gradientDescent(population, profit, theta0, theta1, alpha, iterTimes)</span><br><span class="line">    cost.append(computeCost(population, profit, theta0, theta1))</span><br><span class="line">    </span><br><span class="line">print(<span class="string">&quot;After %d iterations:&quot;</span>%(iterTimes))</span><br><span class="line">print(<span class="string">&quot;h(x) = %f + %fx&quot;</span>%((theta0, theta1)))  </span><br><span class="line">print(<span class="string">&quot;Cost is %f now.&quot;</span>%(computeCost(population, profit, theta0, theta1)))</span><br><span class="line"></span><br><span class="line">plotData(population, profit, theta0, theta1)</span><br><span class="line">plt.axes(yscale=<span class="string">&#x27;log&#x27;</span>)</span><br><span class="line">plt.plot(<span class="built_in">range</span>(iterTimes), cost)</span><br><span class="line">plt.xlabel(<span class="string">&quot;iter&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;cost&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h4 id="easier-way-out-using-sklearn"><a href="#easier-way-out-using-sklearn" class="headerlink" title="easier way out: using sklearn"></a>easier way out: using sklearn</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line">model = linear_model.LinearRegression()</span><br><span class="line">x = np.array(population).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y = np.array(profit).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">model.fit(x, y)</span><br><span class="line"></span><br><span class="line">a = model.intercept_[<span class="number">0</span>]</span><br><span class="line">b = model.coef_[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;h(x) = %f + %fx&quot;</span>%((a, b)))  </span><br><span class="line">print(<span class="string">&quot;Cost = %f&quot;</span>%(computeCost(population, profit, a, b)))</span><br><span class="line"></span><br><span class="line">plotData(population, profit, theta0, theta1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="the-task"><a href="#the-task" class="headerlink" title="the task"></a>the task</h3><h4 id="Discription"><a href="#Discription" class="headerlink" title="Discription"></a>Discription</h4><ul>
-<li>Another restaurant BurgerKenDonald hear that you have just learnt linear regression, so he finds you for help.</li>
-<li>They collected some data from last year, including the running cost (influenced by the rent and labour cost) and revenue from last year (influenced by the transportatin and population)</li>
-<li>Now, they are considering of opening a new shop. How can they estimate the profit of the new shop by the running cost?</li>
-</ul>
-<h4 id="solution1-using-sklearn"><a href="#solution1-using-sklearn" class="headerlink" title="solution1:using sklearn"></a>solution1:using sklearn</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"></span><br><span class="line">f = csv.reader(<span class="built_in">open</span>(<span class="string">&#x27;/Users/august/Desktop/202107_1_BurgerKenDonald/data2.csv&#x27;</span>,<span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line">x_axis=[]</span><br><span class="line">y_axis=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line">    x_axis.append(<span class="built_in">float</span>(i[<span class="number">0</span>]))</span><br><span class="line">    y_axis.append(<span class="built_in">float</span>(i[<span class="number">1</span>]))</span><br><span class="line">    </span><br><span class="line">x_axis=np.array(x_axis)</span><br><span class="line">y_axis=np.array(y_axis)</span><br><span class="line"></span><br><span class="line">X = x_axis.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">X2 = np.hstack([X, X**<span class="number">2</span>])</span><br><span class="line">lin_reg2 = linear_model.LinearRegression()</span><br><span class="line">lin_reg2.fit(X2, y_axis)</span><br><span class="line">y_pred2 = lin_reg2.predict(X2)</span><br><span class="line"></span><br><span class="line">x1=np.linspace(<span class="number">200000</span>,<span class="number">900000</span>,<span class="number">1000000</span>)</span><br><span class="line">x1 = x1.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">X12 = np.hstack([x1, x1**<span class="number">2</span>])</span><br><span class="line">y1=lin_reg2.predict(X12)</span><br><span class="line">plt.plot(x1, y1,color=<span class="string">&quot;red&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.scatter(x_axis,y_axis)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>final result:<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsd6hyl4e9j30o60emabo.jpg" alt="截屏2021-07-11 下午6.19.06"></p>
-<h4 id="solution2-using-the-line-fit-function"><a href="#solution2-using-the-line-fit-function" class="headerlink" title="solution2: using the line_fit function"></a>solution2: using the line_fit function</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit</span><br><span class="line"></span><br><span class="line">f = csv.reader(<span class="built_in">open</span>(<span class="string">&#x27;/Users/august/Desktop/202107_1_BurgerKenDonald/data2.csv&#x27;</span>,<span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line">x_axis=[]</span><br><span class="line">y_axis=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line">    x_axis.append(<span class="built_in">float</span>(i[<span class="number">0</span>]))</span><br><span class="line">    y_axis.append(<span class="built_in">float</span>(i[<span class="number">1</span>]))</span><br><span class="line">    </span><br><span class="line">x=np.array(x_axis)</span><br><span class="line">y=np.array(y_axis)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fit</span>(<span class="params">x,a,b,c</span>):</span></span><br><span class="line">    <span class="keyword">return</span> a*x**<span class="number">2</span>+b*x+c</span><br><span class="line"></span><br><span class="line">popt, pcov = curve_fit(fit, x, y)</span><br><span class="line">x1=np.linspace(<span class="number">200000</span>,<span class="number">900000</span>,<span class="number">1000000</span>)</span><br><span class="line">yvals=fit(x1,popt[<span class="number">0</span>],popt[<span class="number">1</span>],popt[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(x1,yvals,color=<span class="string">&quot;red&quot;</span>)</span><br><span class="line">plt.scatter(x_axis,y_axis)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>final result:</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsd6i89dtnj30o60emgn5.jpg" alt="截屏2021-07-11 下午6.19.20"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/08/%E5%85%B6%E4%BB%96%E7%9A%84report/imperial(1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="August Gu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AugustGu's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/08/%E5%85%B6%E4%BB%96%E7%9A%84report/imperial(1/" class="post-title-link" itemprop="url">Imperial College London summer school report(1):class content</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-08 13:39:54" itemprop="dateCreated datePublished" datetime="2021-07-08T13:39:54+08:00">2021-07-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-10 23:19:06" itemprop="dateModified" datetime="2021-07-10T23:19:06+08:00">2021-07-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/reports/" itemprop="url" rel="index"><span itemprop="name">reports</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="physics-sessions"><a href="#physics-sessions" class="headerlink" title="physics sessions"></a>physics sessions</h2><h4 id="introduction-to-calculus-and-basic-osciliation"><a href="#introduction-to-calculus-and-basic-osciliation" class="headerlink" title="introduction to calculus and basic osciliation"></a>introduction to calculus and basic osciliation</h4><p>In the first four days, the professor gives lecture about calculus and basic physics knowledge about osciliation. Professor starts from the definition of gradient, and then he talks about derivative, differentiation and integration. After making sure every student had a understanding about calculus, the professor starts to teach simple harmonic motion and fomula about ossiliation. Finally he combines the knowledge of calculus with the knowledge of simple harmonic motion to deduce the formulae of SHM.</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbss160rnj30jo04w74n.jpg" alt="截屏2021-07-10 下午1.38.41"></p>
-<h4 id="introduction-to-python-and-matplotlib"><a href="#introduction-to-python-and-matplotlib" class="headerlink" title="introduction to python and matplotlib"></a>introduction to python and matplotlib</h4><p>In this session, the professor gives us document to learn about basic python grammar and the use of of matplotlib, which are enssential to the later stimulation.     </p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbsuldxl8j30840863yn.jpg" alt="截屏2021-07-10 下午1.40.51"></p>
-<h4 id="labworks"><a href="#labworks" class="headerlink" title="labworks"></a>labworks</h4><p>Before starting any labwork, the professor gives one lecture to give us basic idea about how to deal with errors and inaccuracy by matplotlib, which are also of great use to the later labwork. </p>
-<h5 id="labwork1-mass-and-period"><a href="#labwork1-mass-and-period" class="headerlink" title="labwork1: mass and period"></a>labwork1: mass and period</h5><p>This labwork is to determine the mass of a bob has nothing to do with the period of a pendulum system</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbthbes64j30bq09mt9m.jpg" alt="截屏2021-07-10 下午2.02.08"><br>$$<br>T=2\pi\sqrt{\frac{m}{k}}<br>$$</p>
-<ul>
-<li>experiment procedure<ul>
-<li>Hang weights of different masses on the rope </li>
-<li>Swing the rope and use the stop watch to record each time The period of a simple pendulum </li>
-<li>Draw a table to record the corresponding weight mass and pendulum cycle </li>
-</ul>
-</li>
-<li>Methods of controlling experimental errors <ul>
-<li>1.Fix one end of the rope to ensure that the length of the rope remains the same for each experiment.</li>
-<li>2.Mark the position of the first swing to ensure that the amplitude is the same every time the experiment starts to swing.</li>
-<li>3.Measure the total time of multiple swings each time to reduce the error caused by human reaction time.</li>
-<li>4.Each measurement is repeated 5 times and averaged.</li>
-</ul>
-</li>
-<li>Code</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbtuk44ovj30g60o4whh.jpg" alt="截屏2021-07-10 下午2.15.43"></p>
-<ul>
-<li>final output</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbtv4qoocj30ky0o441p.jpg" alt="截屏2021-07-10 下午2.16.20"></p>
-<h5 id="labwork2-amplitude-of-a-lightly-damped-oscillator"><a href="#labwork2-amplitude-of-a-lightly-damped-oscillator" class="headerlink" title="labwork2: amplitude of a lightly damped oscillator"></a>labwork2: amplitude of a lightly damped oscillator</h5><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbu0aw592j30jk0gmq4g.jpg" alt="截屏2021-07-10 下午2.21.17"><br>$$<br>\frac{d^2x}{dt^2}+2\beta\omega_0\frac{dx}{dt}+\omega^2_0x=0<br>$$</p>
-<p>$$<br>\beta=\frac{c}{2\sqrt{mk}}<br>$$</p>
-<ul>
-<li><p>Plan</p>
-<ul>
-<li>Measure the amplitude of an oscillating pendulum for 20 oscillations to find gamma and b.</li>
-</ul>
-</li>
-<li><p>method of measurement </p>
-<ul>
-<li>Attach protractor and string with weight to a desk</li>
-<li>Start the stopclock before releasing pendulum to avoid time error</li>
-<li>Release pendulum at 10˚ to the left of 90˚ and stop it after 10 periods have passed</li>
-<li>Record the process and create a table with amplitude and time</li>
-</ul>
-</li>
-<li><p>code and input</p>
-</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbulz09ybj30ty0iotc1.jpg" alt="截屏2021-07-10 下午2.42.04"></p>
-<ul>
-<li>final output</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbumvb5sgj30jo0jgad7.jpg" alt="截屏2021-07-10 下午2.42.46"></p>
-<h5 id="labwork3-relationship-between-length-amp-period"><a href="#labwork3-relationship-between-length-amp-period" class="headerlink" title="labwork3: relationship between length &amp; period"></a>labwork3: relationship between length &amp; period</h5><ul>
-<li>This labwork is to determine the relationship between the length of a pendulum and the period of which in a simple harmonic motion.</li>
-<li>Experimental procedures<ul>
-<li>Prepare strings of different length(l/m)</li>
-<li>Attach constant weight on it and set up the pendulum</li>
-<li>Use protractor to measure the  initial angle(constant)</li>
-<li>Release the object and start the timer (record the time)</li>
-<li>Calculate the period by measuring time of multiple swings</li>
-</ul>
-</li>
-<li>code input</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbv5xy0gqj30oy0iqdi5.jpg" alt="截屏2021-07-10 下午3.01.22"></p>
-<ul>
-<li>code output</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbv7g0zvqj30r60jcq4y.jpg" alt="截屏2021-07-10 下午3.02.45"></p>
-<h4 id="forced-damped-osciliation"><a href="#forced-damped-osciliation" class="headerlink" title="forced damped osciliation"></a>forced damped osciliation</h4><p>Finally the professor talked about the forced damped oscilliation. It is rather more complexed than the damped oscilatoin and needs more work on programming and calculus.<br>$$<br>\frac{d^2x}{dt^2}+2\beta\omega_0\frac{dx}{dt}+\omega^2_0x=fcosw_pt<br>$$</p>
-<ul>
-<li> output</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbutts93gj30ga0bsabo.jpg" alt="截屏2021-07-10 下午2.49.24"></p>
-<h3 id="stem-project"><a href="#stem-project" class="headerlink" title="stem project"></a>stem project</h3><p>In the stem project, all teams need to figure out a solution to a problem existing in the natrual world, including energy, natural resource, changing weather. We have to choose a topic in one of the problems. Finally we chose “heat wave”, which is a natrual disaster belonging to changing weather. After our discussion, we decided to construct two layers of aluminium with vacum between. We belive this could effectively cool down the temperature of thee house and give help to people suffering from extremely hot area.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -1472,6 +1237,213 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/24/python%20notes/title%20%20python%20notes(3%EF%BC%89%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/24/python%20notes/title%20%20python%20notes(3%EF%BC%89%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">the python notes(3):algorithm（1）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-24 11:06:56" itemprop="dateCreated datePublished" datetime="2021-02-24T11:06:56+08:00">2021-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 17:15:53" itemprop="dateModified" datetime="2021-03-05T17:15:53+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="time-complexity"><a href="#time-complexity" class="headerlink" title="time complexity"></a>time complexity</h4><p>a way to evaluate the time needed to take to run the program</p>
+<h6 id="the-basic-of-time-complexity"><a href="#the-basic-of-time-complexity" class="headerlink" title="the basic of time complexity"></a>the basic of time complexity</h6><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyfviyntgj30u60ikt9q.jpg" alt="截屏2021-02-24 上午10.58.13"></p>
+<ul>
+<li><p>1，n，n^2，logn  are units ,meaning there’s no 2* 1 or 7* n</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyg0ew12xj30u60ikwfw.jpg" alt="截屏2021-02-24 上午11.02.22"></p>
+</li>
+</ul>
+<h6 id="the-time-taken-of-each-time-compexity"><a href="#the-time-taken-of-each-time-compexity" class="headerlink" title="the time taken of each time compexity"></a>the time taken of each time compexity</h6><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyg1esuy2j30uw0a2wfa.jpg" alt="截屏2021-02-24 上午11.03.59"></p>
+<h6 id="easy-way-to-evaluate-time-complexity"><a href="#easy-way-to-evaluate-time-complexity" class="headerlink" title="easy way to evaluate time complexity"></a>easy way to evaluate time complexity</h6><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyg3i0vpzj30x20i8q4x.jpg" alt="截屏2021-02-24 上午11.05.59"></p>
+<hr>
+<h4 id="space-complexity"><a href="#space-complexity" class="headerlink" title="space complexity"></a>space complexity</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyg9pdnjij30x20i80tl.jpg" alt="截屏2021-02-24 上午11.12.11"></p>
+<h4 id="recurrence，Hanoi-tower-small-exercise"><a href="#recurrence，Hanoi-tower-small-exercise" class="headerlink" title="recurrence，Hanoi tower, small exercise"></a>recurrence，Hanoi tower, small exercise</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span>(<span class="params">n,a,b,c</span>):</span></span><br><span class="line">  <span class="keyword">if</span> n&gt;<span class="number">0</span>:</span><br><span class="line">    hanoi(n-<span class="number">1</span>,a,c,b)  <span class="comment">#开始，经过，最终移动到</span></span><br><span class="line">    print(<span class="string">&quot;moving from %s to %s&quot;</span>%(a,c))</span><br><span class="line">    hanoi(n-<span class="number">1</span>,b,a,c)</span><br><span class="line">    </span><br><span class="line">x=<span class="built_in">input</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">hanoi(x,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id><a href="#" class="headerlink" title></a></h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/15/python%20notes/title%20%20python%20notes(2%EF%BC%89%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="August Gu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AugustGu's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/15/python%20notes/title%20%20python%20notes(2%EF%BC%89%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">python notes(2）data analyzing</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-15 20:01:45" itemprop="dateCreated datePublished" datetime="2021-02-15T20:01:45+08:00">2021-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-05 17:15:49" itemprop="dateModified" datetime="2021-03-05T17:15:49+08:00">2021-03-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-notes/" itemprop="url" rel="index"><span itemprop="name">python notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h4><h6 id="line-chart"><a href="#line-chart" class="headerlink" title="line chart"></a>line chart</h6><p>1.import</p>
+<p>from matplotlib import pyplot as plt.  以plot导入pyplot</p>
+<p>2.basic</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=[]</span><br><span class="line">y=[]</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show</span><br></pre></td></tr></table></figure>
+
+<p>3.advanced level of line charts</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.set the size of the figure</span></span><br><span class="line">plt.figure(figsize=(a,b).dpi=x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.save the figure</span></span><br><span class="line">plt.savefig(<span class="string">&quot;./sig_size.png&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#set x/y axis</span></span><br><span class="line">plt.xticks(<span class="built_in">range</span>(a,b,c))</span><br><span class="line"></span><br><span class="line">_x=<span class="built_in">list</span>(x)[::<span class="number">10</span>]</span><br><span class="line">_xtick_labels=[<span class="string">&quot;hello,&#123;&#125;&quot;</span>.<span class="built_in">format</span>(i)<span class="keyword">for</span> i <span class="keyword">in</span> _x]</span><br><span class="line">plt.xticks(_x,_xtick_labels)</span><br><span class="line"></span><br><span class="line"><span class="comment">#add information describing the x/y axis</span></span><br><span class="line">plt.xlabel()</span><br><span class="line">plt.ylable()</span><br><span class="line">plt.title()</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot the grid</span></span><br><span class="line">plt.grid(alpha=x)</span><br><span class="line">alpha</span><br><span class="line"></span><br><span class="line"><span class="comment">#legend/key</span></span><br><span class="line">plt.plot(x,y,lable=<span class="string">&quot;&quot;</span>)</span><br><span class="line">plt.legend</span><br><span class="line"></span><br><span class="line"><span class="comment">#style of the line</span></span><br><span class="line">plt.plot(x,y,color:<span class="string">&#x27;&#x27;</span> <span class="comment">#colour</span></span><br><span class="line">         linestyle=<span class="string">&#x27;&#x27;</span> <span class="comment">#style</span></span><br><span class="line">         linewidth=x. <span class="comment">#width</span></span><br><span class="line">         alpha=y.     <span class="comment">#transparency</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gnoish9fq5j30cv0gx40u.jpg" alt="IMG_0189"></p>
+<h6 id="scatter-diagram"><a href="#scatter-diagram" class="headerlink" title="scatter diagram"></a>scatter diagram</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#basic way</span></span><br><span class="line">plt.scatter.(x,y)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#advanced level</span></span><br><span class="line"><span class="comment">#adjusting lable,x/y axis are the same as the line graph</span></span><br><span class="line">plt.sticks() </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="bar-graph"><a href="#bar-graph" class="headerlink" title="bar graph"></a>bar graph</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#basic plotting</span></span><br><span class="line">plt.bar(a,b,</span><br><span class="line">       width=x     <span class="comment">#adjusting the width of the bar</span></span><br><span class="line">       colour=y)  <span class="comment">#adjusting the colour of the bar</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#reverse</span></span><br><span class="line">plt.barh(a,b,height=y)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h4 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h4><p>Numpy -numeric  python</p>
+<h6 id="array"><a href="#array" class="headerlink" title="array"></a>array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.one-dimensional array</span></span><br><span class="line">a=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.two-dimensional array</span></span><br><span class="line">b=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.three-dimensional array</span></span><br><span class="line">c=np.array([[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]])</span><br><span class="line"></span><br><span class="line"><span class="comment">#4.array‘s parameters</span></span><br><span class="line"><span class="comment">#dtype </span></span><br><span class="line"><span class="comment">#ndmin</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="create-an-array-by-using-arrangment"><a href="#create-an-array-by-using-arrangment" class="headerlink" title="create an array by using arrangment"></a>create an array by using arrangment</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.the use of range</span></span><br><span class="line"><span class="built_in">range</span>(start,end,step)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.create an array by range</span></span><br><span class="line">a=np.arange(start,end,step，dtype)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="use-random-to-create-an-array"><a href="#use-random-to-create-an-array" class="headerlink" title="use random to create an array"></a>use random to create an array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.one dimensional</span></span><br><span class="line">numpy.random.random(size=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.two dimensional</span></span><br><span class="line">b=np.random.random(size=(a,b) <span class="comment">#a line b row</span></span><br><span class="line">                </span><br><span class="line"><span class="comment">#3.three dimensional</span></span><br><span class="line">c=np.random.random(size=(c,a,b)) <span class="comment">#c&#x27;s a line b row</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#4.random integer</span></span><br><span class="line">a=np.random.randint(a,size=b)</span><br><span class="line">                   </span><br><span class="line"><span class="comment">#5.random integer in two dimension</span></span><br><span class="line">b=np.random.randint(a,size=b,c)</span><br><span class="line">                   </span><br><span class="line"><span class="comment">#6.random integer in three dimension</span></span><br><span class="line">c=np.random.randint(a,size=b,c,d)</span><br><span class="line">                   </span><br><span class="line">                  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h6 id="randn-to-create-“normal-distribution”"><a href="#randn-to-create-“normal-distribution”" class="headerlink" title="randn to create “normal distribution”"></a>randn to create “normal distribution”</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=np.random.randn(a)</span><br><span class="line">b=np.random.randn(a,b)</span><br><span class="line">c=np.random.randn(a,b,c)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="use-other-ways-to-create-array"><a href="#use-other-ways-to-create-array" class="headerlink" title="use other ways to create array"></a>use other ways to create array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.zero </span></span><br><span class="line">numpy.zero(shape,dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.linespace to create arthimetric progression </span></span><br><span class="line">a=np.linespace(a,b,c) <span class="comment">#a:the first element b:the last element c:the number of elements</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.logspace to create geometric progression</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="indexing-a-one-dimensional-array"><a href="#indexing-a-one-dimensional-array" class="headerlink" title="indexing a one dimensional array"></a>indexing a one dimensional array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a=np.linespace(a,b,c)</span><br><span class="line"><span class="comment">#index from head</span></span><br><span class="line">a[k]</span><br><span class="line"></span><br><span class="line"><span class="comment">#index from bottom</span></span><br><span class="line">a[-k]</span><br><span class="line"></span><br><span class="line"><span class="comment">#slicing</span></span><br><span class="line">a[:] <span class="comment">#slice from start to end</span></span><br><span class="line">a[<span class="number">3</span>:] <span class="comment">#slice from 3 to end</span></span><br><span class="line">a[<span class="number">3</span>,<span class="number">5</span>] <span class="comment">#slice from 3 to 4</span></span><br><span class="line">a[<span class="number">1</span>,<span class="number">7</span>,<span class="number">2</span>] <span class="comment">#slice every two elements from 1 to 7</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="indexing-a-two-dimensional-array"><a href="#indexing-a-two-dimensional-array" class="headerlink" title="indexing a two dimensional array"></a>indexing a two dimensional array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#obtain a whole array</span></span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"><span class="comment">#obtain the n+1 line</span></span><br><span class="line">a[n]</span><br><span class="line"></span><br><span class="line"><span class="comment">#obtain the m+1 row</span></span><br><span class="line">a[][m]</span><br><span class="line"></span><br><span class="line"><span class="comment">#obtain the n+1 line and m+1 row at the same rate</span></span><br><span class="line">a[n][m]</span><br><span class="line"></span><br><span class="line"><span class="comment">#slice the array</span></span><br><span class="line">a[start,stop,step][start,stop,step]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="the-copy-and-paste-of-an-array"><a href="#the-copy-and-paste-of-an-array" class="headerlink" title="the copy and paste of an array"></a>the copy and paste of an array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#deep copy</span></span><br><span class="line">a=np.copy(a)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="change-the-dimension-of-an-array"><a href="#change-the-dimension-of-an-array" class="headerlink" title="change the dimension of an array"></a>change the dimension of an array</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#change a one-dimensional array to a two or three dimensional array</span></span><br><span class="line">k.reshape(a,b,c)  <span class="comment">#(a,b,c)可作为元祖传递</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#将多维数组转化为一维数组</span></span><br><span class="line">k=b.reshape(n)</span><br><span class="line">k=b.reshaple(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用函数将多维数组转化为一维数组</span></span><br><span class="line"><span class="comment">#ravel</span></span><br><span class="line">a=b(ravel)</span><br><span class="line"><span class="comment">#flatten</span></span><br><span class="line">a=b(flatten)</span><br></pre></td></tr></table></figure>
+
+<h6 id="joint-of-arrays"><a href="#joint-of-arrays" class="headerlink" title="joint of arrays"></a>joint of arrays</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#hstack join horizontally</span></span><br><span class="line">r=np.hstack((a,b))</span><br><span class="line"></span><br><span class="line"><span class="comment">#vstack join vertically</span></span><br><span class="line">r=np.vstack((a,b))</span><br><span class="line"></span><br><span class="line"><span class="comment">#concatenate</span></span><br><span class="line">r=np.concatenate((a,b),axis=) <span class="comment"># there are two axis of a two dimensional array，0纵轴，1横轴</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="split-an-array"><a href="#split-an-array" class="headerlink" title="split an array"></a>split an array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#function split</span></span><br><span class="line"><span class="comment">#split an one-dimensional array </span></span><br><span class="line"></span><br><span class="line">a=numpy.split(x,<span class="number">4</span>) <span class="comment">#put x into 4 identical peices</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#split the array according to position</span></span><br><span class="line">a=numpy.split(x,[<span class="number">4</span>,<span class="number">6</span>]) <span class="comment">#split by the position &quot;4&quot; and &quot;6&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#split a two dimensional array</span></span><br><span class="line">a=numpy.split(a,k,axis=<span class="number">0</span>) <span class="comment">#split into k peices</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#split horizontally</span></span><br><span class="line">a=numpy.split(a,k,axis=<span class="number">0</span>)<span class="comment">#split into k pieces </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#spilt by other functions</span></span><br><span class="line">hsplit <span class="comment">#split horizontally</span></span><br><span class="line">vsplit <span class="comment">#split vertically</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="Transform-an-array"><a href="#Transform-an-array" class="headerlink" title="Transform an array"></a>Transform an array</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#transforming a two-dimensional array</span></span><br><span class="line">b=np.transpose(A) </span><br><span class="line"></span><br><span class="line"><span class="comment">#transforming a three-dimensional array</span></span><br><span class="line">np.transpose(a,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>) </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1543,7 +1515,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
